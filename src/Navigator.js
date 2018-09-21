@@ -16,7 +16,7 @@ const AuthStack = createStackNavigator(
   { 
     Welcome,
     Login,
-    // Register
+    Register
   }
 );
 

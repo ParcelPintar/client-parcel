@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { 
+  AsyncStorage,
   View,
   StyleSheet,
   StatusBar
@@ -11,6 +12,7 @@ import {
 export default class AuthLoading extends Component {
   constructor() {
     super();
+    this.tokenCheck();
   }
 
   // Fetch the token from storage then navigate to our appropriate place
@@ -21,11 +23,6 @@ export default class AuthLoading extends Component {
     // screen will be unmounted and thrown away.
     this.props.navigation.navigate(token ? 'App' : 'Auth');
   };
-
-  componentDidMount = () => {
-    this.tokenCheck();
-  }
-  
 
   // Render any loading content that you like here
   render() {

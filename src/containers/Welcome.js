@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import {
   AsyncStorage,
-  Button,
   StyleSheet,
-  Text,
   TouchableHighlight,
   View,
 } from 'react-native';
+import {
+  Text, 
+  Button 
+} from 'native-base'
 
 export default class Welcome extends Component {
   static navigationOptions = {
@@ -19,7 +21,11 @@ export default class Welcome extends Component {
         <Text style={{fontSize: 36}}>Parcel Pintar</Text>
         <Text style={{fontSize: 10}}>Logo Here..</Text>
         <Text style={{fontSize: 16}}>Not just a parcel! (slogan)</Text>
-        <Button title="Login" onPress={this.signInAsync} />
+        <View style={{ alignSelf: "center" }}>
+          <Button rounded info onPress={this.signInAsync}> 
+            <Text> Login </Text>
+          </Button>
+        </View>
         <Text style={{fontSize: 10}}>Don't have an account?</Text>
         <TouchableHighlight
           onPress={()=> {
