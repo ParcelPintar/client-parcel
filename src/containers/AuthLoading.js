@@ -19,6 +19,8 @@ export default class AuthLoading extends Component {
   tokenCheck = async () => {
     const token = await AsyncStorage.getItem('token');
 
+    console.log('TOK', token);
+
     // This will switch to the App screen or Auth screen and this loading
     // screen will be unmounted and thrown away.
     this.props.navigation.navigate(token ? 'App' : 'Auth');

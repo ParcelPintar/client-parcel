@@ -22,7 +22,7 @@ export default class Welcome extends Component {
         <Text style={{fontSize: 10}}>Logo Here..</Text>
         <Text style={{fontSize: 16}}>Not just a parcel! (slogan)</Text>
         <View style={{ alignSelf: "center" }}>
-          <Button rounded info onPress={this.signInAsync}> 
+          <Button rounded info onPress={this.props.navigation.navigate('Login')}> 
             <Text> Login </Text>
           </Button>
         </View>
