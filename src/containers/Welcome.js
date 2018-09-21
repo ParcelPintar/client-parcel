@@ -37,11 +37,6 @@ export default class Welcome extends Component {
       </View>
     );
   }
-
-  signInAsync = async () => {
-    await AsyncStorage.setItem('token', 'TEST');
-    this.props.navigation.navigate('App');
-  };
 }
 
 const styles = StyleSheet.create({

@@ -6,6 +6,11 @@ import {
   Text,
   Right
 } from 'native-base'
+import { 
+  StyleSheet, 
+  View,
+  AsyncStorage
+} from 'react-native'
 
 import AuthForm from '../components/AuthForm'
 
@@ -33,16 +38,14 @@ export default class Login extends Component {
   }
 
   login = async () => {
-    console.log('LOGIN', this.state.email, this.state.password)
     await AsyncStorage.setItem('token', 'TEST');
     this.props.navigation.navigate('App');
   };
 
   render() {
     return (
-      <Container>
-        <Content>
-          <AuthForm 
+      <View style={styles.container}>
+      <AuthForm 
             values={{
               email: this.state.email,
               password: this.state.password
@@ -57,8 +60,15 @@ export default class Login extends Component {
               <Text> Login </Text>
             </Button>
           </Right>
-        </Content>
-      </Container>
+      </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
