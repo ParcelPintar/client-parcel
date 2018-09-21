@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { 
-  Button,
+  Button, 
   Text,
   Right
 } from 'native-base'
@@ -12,23 +12,30 @@ import {
 
 import AuthForm from '../components/AuthForm'
 
-export default class Login extends Component {
+export default class Register extends Component {
   constructor (){
     super ()
     this.state = {
+      name: '',
       email: '',
       password: ''
     }
   }
   static navigationOptions = {
-    title: 'Login',
+    title: 'Register',
   };
 
-  setEmail = (e) => {
-    console.log(e);
-    // e.preventDefault();
+  setName = (e) => {
+    e.preventDefault();
     this.setState({
-      email: e
+      name: e.target.value
+    })
+  }
+
+  setEmail = (e) => {
+    e.preventDefault();
+    this.setState({
+      email: e.target.value
     })
   }
 
@@ -39,9 +46,9 @@ export default class Login extends Component {
     })
   }
 
-  login = async () => {
+  register = async () => {
     await AsyncStorage.setItem('token', 'TEST');
-    console.log('DATALOGIN', this.state.email, this.state.password );
+    console.log('DATAREG', this.state.email, this.state.password, this.state.name );
     this.props.navigation.navigate('App');
   };
 
@@ -50,17 +57,19 @@ export default class Login extends Component {
       <View style={styles.container}>
         <AuthForm
           values={{
+            name: this.state.name,
             email: this.state.email,
             password: this.state.password
           }}
           onChanges={{
+            name: this.setName,
             email: this.setEmail,
             password: this.setPassword
           }}
         />
         <Right>
-          <Button rounded info onPress={this.login}>
-            <Text> Login </Text>
+          <Button rounded info onPress={this.register}>
+            <Text> Register </Text>
           </Button>
         </Right>
       </View>

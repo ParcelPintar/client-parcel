@@ -1,29 +1,27 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Form, Item, Input, Label } from 'native-base';
+import { TextInput, Text } from 'react-native'
 
 export default class AuthForm extends Component {
   render() {
     return (
       <Form>
         {
-          this.props.values.name && (
-            <Item stackedLabel>
-              <Label>Name</Label>
-              <Input
-                type="text"
-                value={this.props.values.name}
-                onChange={this.props.onChanges.name}
-                required
-              />
-            </Item>
-          )
+          this.props.values.name &&
+          <Item stackedLabel>
+            <Label>Name</Label>
+            <Input
+              value={this.props.values.name}
+              onChangeText={this.props.onChanges.name}
+              required
+            />
+          </Item>
         }
         <Item stackedLabel>
           <Label>Email</Label>
           <Input
-            type="email"
             value={this.props.values.email}
-            onChange={this.props.onChanges.email}
+            onChangeText={this.props.onChanges.email}
             required
           />
         </Item>
@@ -31,9 +29,8 @@ export default class AuthForm extends Component {
           <Label>Password</Label>
           <Input
             secureTextEntry={true}
-            type="password"
             value={this.props.values.password}
-            onChange={this.props.onChanges.password}
+            onChangeText={this.props.onChanges.password}
             required
           />
         </Item>

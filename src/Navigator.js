@@ -3,8 +3,9 @@ import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
 import Home from './containers/Home'
 import AuthLoading from './containers/AuthLoading'
 import Other from './containers/Other'
-import Login from './containers/Login'
 import Welcome from './containers/Welcome'
+import Login from './containers/Login'
+import Register from './containers/Register'
 
 const AppStack = createStackNavigator(
   { 
@@ -13,10 +14,10 @@ const AppStack = createStackNavigator(
   }
 );
 const AuthStack = createStackNavigator(
-  { 
+  {  
     Welcome,
     Login,
-    // Register
+    Register
   },
   {
     initialRouteName: 'Welcome'
