@@ -17,6 +17,9 @@ const AuthStack = createStackNavigator(
     Welcome,
     Login,
     // Register
+  },
+  {
+    initialRouteName: 'Welcome'
   }
 );
 

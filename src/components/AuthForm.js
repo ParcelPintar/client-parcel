@@ -30,6 +30,7 @@ export default class AuthForm extends Component {
         <Item stackedLabel>
           <Label>Password</Label>
           <Input
+            secureTextEntry={true}
             type="password"
             value={this.props.values.password}
             onChange={this.props.onChanges.password}

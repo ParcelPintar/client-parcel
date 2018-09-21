@@ -22,6 +22,9 @@ export default class Login extends Component {
       password: ''
     }
   }
+  static navigationOptions = {
+    title: 'Login',
+  };
 
   setEmail = (e) => {
     e.preventDefault();
@@ -45,21 +48,21 @@ export default class Login extends Component {
   render() {
     return (
       <View style={styles.container}>
-      <AuthForm 
-            values={{
-              email: this.state.email,
-              password: this.state.password
-            }}
-            onChanges={{
-              email: this.setEmail,
-              password: this.setPassword
-            }}
-          />
-          <Right>
-            <Button rounded info onPress={this.login}> 
-              <Text> Login </Text>
-            </Button>
-          </Right>
+        <AuthForm
+          values={{
+            email: this.state.email,
+            password: this.state.password
+          }}
+          onChanges={{
+            email: this.setEmail,
+            password: this.setPassword
+          }}
+        />
+        <Right>
+          <Button rounded info onPress={this.login}>
+            <Text> Login </Text>
+          </Button>
+        </Right>
       </View>
     )
   }

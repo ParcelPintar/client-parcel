@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import {
-  AsyncStorage,
   StyleSheet,
   TouchableHighlight,
   View,
@@ -11,9 +10,9 @@ import {
 } from 'native-base'
 
 export default class Welcome extends Component {
-  static navigationOptions = {
-    // title: 'Please sign in',
-  };
+  // static navigationOptions = {
+  //   // title: 'Please sign in',
+  // };
 
   render() {
     return (
@@ -22,14 +21,16 @@ export default class Welcome extends Component {
         <Text style={{fontSize: 10}}>Logo Here..</Text>
         <Text style={{fontSize: 16}}>Not just a parcel! (slogan)</Text>
         <View style={{ alignSelf: "center" }}>
-          <Button rounded info onPress={this.props.navigation.navigate('Login')}> 
+          <Button rounded info onPress={() => {
+            this.props.navigation.navigate('Login')
+          }}> 
             <Text> Login </Text>
           </Button>
         </View>
         <Text style={{fontSize: 10}}>Don't have an account?</Text>
         <TouchableHighlight
-          onPress={()=> {
-            props.navigation.navigate('Register', {index: props.index})
+          onPress={() => {
+            this.props.navigation.navigate('Register')
           }}
         >
           <Text style={{fontSize: 10, color:'blue'}}>Register</Text>
