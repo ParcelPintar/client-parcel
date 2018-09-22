@@ -6,6 +6,7 @@ import Other from './containers/Other'
 import Welcome from './containers/Welcome'
 import Login from './containers/Login'
 import Register from './containers/Register'
+import Maps from './containers/Maps'
 
 const AppStack = createStackNavigator(
   { 
@@ -26,11 +27,12 @@ const AuthStack = createStackNavigator(
 
 export default createSwitchNavigator(
   {
-    AuthLoading,
-    App: AppStack,
-    Auth: AuthStack,
+    Maps
+    // AuthLoading,
+    // App: AppStack,
+    // Auth: AuthStack,
   },
   {
-    initialRouteName: 'AuthLoading',
+    // initialRouteName: 'AuthLoading',
   }
 );
