@@ -10,7 +10,7 @@ import {
   AsyncStorage
 } from 'react-native'
 
-import AuthForm from '../components/AuthForm'
+import LoginForm from '../components/LoginForm'
 
 export default class Login extends Component {
   constructor (){
@@ -25,17 +25,15 @@ export default class Login extends Component {
   };
 
   setEmail = (e) => {
-    console.log(e);
-    // e.preventDefault();
     this.setState({
       email: e
     })
   }
 
   setPassword = (e) => {
-    e.preventDefault();
+    e
     this.setState({
-      password: e.target.value
+      password: e
     })
   }
 
@@ -48,7 +46,7 @@ export default class Login extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <AuthForm
+        <LoginForm
           values={{
             email: this.state.email,
             password: this.state.password

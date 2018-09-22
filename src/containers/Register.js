@@ -10,7 +10,7 @@ import {
   AsyncStorage
 } from 'react-native'
 
-import AuthForm from '../components/AuthForm'
+import RegisterForm from '../components/RegisterForm'
 
 export default class Register extends Component {
   constructor (){
@@ -26,23 +26,23 @@ export default class Register extends Component {
   };
 
   setName = (e) => {
-    e.preventDefault();
+    e
     this.setState({
-      name: e.target.value
+      name: e
     })
   }
 
   setEmail = (e) => {
-    e.preventDefault();
+    e
     this.setState({
-      email: e.target.value
+      email: e
     })
   }
 
   setPassword = (e) => {
-    e.preventDefault();
+    e
     this.setState({
-      password: e.target.value
+      password: e
     })
   }
 
@@ -55,7 +55,7 @@ export default class Register extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <AuthForm
+        <RegisterForm
           values={{
             name: this.state.name,
             email: this.state.email,
