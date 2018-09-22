@@ -8,10 +8,9 @@ import {
 import MapView, { Marker, ProviderPropType } from 'react-native-maps';
 
 const { width, height } = Dimensions.get('window');
-
 const ASPECT_RATIO = width / height;
-const LATITUDE = 37.78825;
-const LONGITUDE = -122.4324;
+const LATITUDE = -6.1753924;
+const LONGITUDE = 106.8249641;
 const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
@@ -37,8 +36,9 @@ export default class Maps extends Component {
   // const latDelta = Number(response.data.results[0].geometry.viewport.northeast.lat) - Number(response.data.results[0].geometry.viewport.southwest.lat)
   // const lngDelta = Number(response.data.results[0].geometry.viewport.northeast.lng) - Number(response.data.results[0].geometry.viewport.southwest.lng)
 
-  componentDidMount = async () => {
-    console.log('MAPSX');
+  componentDidMount = () => {
+    console.log('MAPS');
+    console.log(width, height);
     this.requestLocPermission()
 
     navigator.geolocation.getCurrentPosition(
@@ -84,13 +84,17 @@ export default class Maps extends Component {
         }
       )
       if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-        console.log("You can use the camera")
+        console.log("You can use the APP")
       } else {
-        console.log("Camera permission denied")
+        console.log("APP permission denied")
       }
     } catch (err) {
       console.warn(err)
     }
+  }
+
+  onRegionChange = (region) => {
+    this.setState({region})
   }
   
 
@@ -98,21 +102,14 @@ export default class Maps extends Component {
     return (
       <View style={styles.container}>
 
-        {/* <MapView
-          style={styles.map}
-          region={this.state.locationCoordinates}
-          zoomEnabled={true}
-          scrollEnabled={true}
-        /> */}
-
         <MapView
           style={styles.container}
           showsUserLocation={true}
           region={this.state.region}
-          onRegionChange={region => this.setState({ region })}
+          onRegionChange={this.onRegionChange}
           onRegionChangeComplete={region => this.setState({ region })}
         >
-          <MapView.Marker
+          <Marker
             coordinate={this.state.region}
           />
         </MapView>
