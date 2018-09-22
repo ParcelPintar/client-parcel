@@ -27,12 +27,12 @@ const AuthStack = createStackNavigator(
 
 export default createSwitchNavigator(
   {
+    AuthLoading,
+    App: AppStack,
+    Auth: AuthStack,
     Maps
-    // AuthLoading,
-    // App: AppStack,
-    // Auth: AuthStack,
   },
   {
-    // initialRouteName: 'AuthLoading',
+    initialRouteName: 'AuthLoading',
   }
 );
