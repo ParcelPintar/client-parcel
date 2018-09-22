@@ -37,7 +37,7 @@ export default class Maps extends Component {
   // const latDelta = Number(response.data.results[0].geometry.viewport.northeast.lat) - Number(response.data.results[0].geometry.viewport.southwest.lat)
   // const lngDelta = Number(response.data.results[0].geometry.viewport.northeast.lng) - Number(response.data.results[0].geometry.viewport.southwest.lng)
 
-  componentDidMount = () => {
+  componentDidMount = async () => {
     console.log('MAPSX');
     this.requestLocPermission()
 
@@ -76,7 +76,7 @@ export default class Maps extends Component {
   requestLocPermission = async () => {
     try {
       const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.ACCESS_FINE_LOCATION,
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
         {
           'title': 'Cool Photo App Camera Permission',
           'message': 'Cool Photo App needs access to your camera ' +

@@ -1,3 +1,3 @@
-# Referenced at /Users/hacktiv8/Desktop/client-parcel/android/app/build/intermediates/manifests/full/debug/AndroidManifest.xml:25
+# Referenced at /Users/hacktiv8/Desktop/client-parcel/android/app/build/intermediates/manifests/full/debug/AndroidManifest.xml:27
 -keep class com.parcel.MainApplication { <init>(...); }
 
