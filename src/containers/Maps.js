@@ -42,12 +42,14 @@ export default class Maps extends Component {
 
   render() {
     return (
-      <MapView
-        style={styles.container}
-        region={this.state.locationCoordinates}
-        zoomEnabled={true}
-        scrollEnabled={true}
-      />
+      <View style={styles.container}>
+        <MapView
+          style={styles.map}
+          region={this.state.locationCoordinates}
+          zoomEnabled={true}
+          scrollEnabled={true}
+        />
+      </View>
       // <View style={styles.container}>
       //   <MapView
       //     provider={this.props.provider}
@@ -86,8 +88,13 @@ export default class Maps extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    ...StyleSheet.absoluteFillObject,
+    height: 400,
+    width: 400,
+    justifyContent: 'flex-end',
     alignItems: 'center',
-    justifyContent: 'center',
   },
-});
+  map: {
+    ...StyleSheet.absoluteFillObject,
+  },
+ });
