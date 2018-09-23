@@ -18,12 +18,6 @@ export default class Maps extends Component {
   constructor(){
     super()
     this.state = {
-      locationCoordinates: {
-        latitude: -6.2607187,
-        longitude: 106.7794222,
-        latitudeDelta: 0.09,
-        longitudeDelta: 0.09,
-      },
       region: {
         latitude: LATITUDE,
         longitude: LONGITUDE,
@@ -32,13 +26,15 @@ export default class Maps extends Component {
       }
     }
   }
+  static navigationOptions = {
+    title: 'Pickup Location',
+  };
 
   // const latDelta = Number(response.data.results[0].geometry.viewport.northeast.lat) - Number(response.data.results[0].geometry.viewport.southwest.lat)
   // const lngDelta = Number(response.data.results[0].geometry.viewport.northeast.lng) - Number(response.data.results[0].geometry.viewport.southwest.lng)
 
   componentDidMount = () => {
-    console.log('MAPS');
-    console.log(width, height);
+    console.log('MAPzS');
     this.requestLocPermission()
 
     navigator.geolocation.getCurrentPosition(
@@ -78,9 +74,8 @@ export default class Maps extends Component {
       const granted = await PermissionsAndroid.request(
         PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
         {
-          'title': 'Cool Photo App Camera Permission',
-          'message': 'Cool Photo App needs access to your camera ' +
-                     'so you can take awesome pictures.'
+          'title': 'ParcelPintar App Permission',
+          'message': 'ParcelPintar App needs access to your location'
         }
       )
       if (granted === PermissionsAndroid.RESULTS.GRANTED) {
@@ -93,24 +88,37 @@ export default class Maps extends Component {
     }
   }
 
-  onRegionChange = (region) => {
-    this.setState({region})
+  setRegion = (e) => {
+    console.log(e.nativeEvent.coordinate);
+    this.setState({
+      region: {
+        ... this.state.region,
+        latitude: e.nativeEvent.coordinate.latitude,
+        longitude: e.nativeEvent.coordinate.longitude,
+      }
+    })
   }
-  
 
   render() {
     return (
       <View style={styles.container}>
 
         <MapView
-          style={styles.container}
+          style={styles.map}
           showsUserLocation={true}
           region={this.state.region}
-          onRegionChange={this.onRegionChange}
-          onRegionChangeComplete={region => this.setState({ region })}
+          // onRegionChange={this.onRegionChange}
+          onRegionChangeComplete={(region) => {
+            this.setState({region})
+          }}
+          onLongPress={this.setRegion}
         >
           <Marker
             coordinate={this.state.region}
+            pinColor='blue'
+            onMarkerDragEnd={(e)=> console.log(e)}
+            onDragEnd={this.setRegion}
+            draggable
           />
         </MapView>
 
