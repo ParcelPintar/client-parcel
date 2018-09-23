@@ -116,7 +116,7 @@ export default class Maps extends Component {
       this.setState({
         searchPickup: true,
         pickups: null
-      }), console.log('toglED', this.state.pickups) 
+      })
     } else {
       RNGooglePlaces.getAutocompletePredictions(e, {country: 'ID'})
       .then((results) => {
@@ -129,9 +129,9 @@ export default class Maps extends Component {
   predictDestination = (e) => {
     if (!e.length){
       this.setState({
-        searchPickup: true,
-        pickups: null
-      }), console.log('toglED', this.state.pickups) 
+        searchPickup: false,
+        destinations: null
+      }) 
     } else {
       RNGooglePlaces.getAutocompletePredictions(e, {country: 'ID'})
       .then((results) => this.setState({destinations:results}))
