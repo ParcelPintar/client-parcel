@@ -9,7 +9,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 const {width} = Dimensions.get('window')
 
 
-const SearchBox = () => {
+const SearchBox = (props) => {
   return (
     <View style={styles.searchBox}>
       <View style={styles.inputWrapper}>
@@ -17,10 +17,10 @@ const SearchBox = () => {
         <InputGroup>
           <Icon name="search" size={15} color="#FF5E3A" />
           <Input
-            // onFocus={() => toggleSearchResultModal("pickUp")}
+            onFocus={() => props.onFocus('pickUp')}
             style={styles.inputSearch}
             placeholder="Choose pick-up location"
-            // onChangeText={handleInput.bind(this, "pickUp")}
+            onChangeText={props.onChanges.pickup}
             // value={selectedPickUp && selectedPickUp.name}
           />
         </InputGroup>
@@ -30,10 +30,10 @@ const SearchBox = () => {
         <InputGroup>
           <Icon name="search" size={15} color="#FF5E3A" />
           <Input
-            // onFocus={() => toggleSearchResultModal("dropOff")}
+            onFocus={() => props.onFocus('destination')}
             style={styles.inputSearch}
             placeholder="Choose destination location"
-            // onChangeText={handleInput.bind(this, "dropOff")}
+            onChangeText={props.onChanges.destination}
             // value={selectedDropOff && selectedDropOff.name}
           />
         </InputGroup>
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
       marginTop:10,
       marginBottom:0,
       backgroundColor:"#fff",
-      opacity:0.9,
+      opacity:0.7,
       borderRadius:7
   },
   secondInputWrapper:{
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
       marginRight:10,
       marginTop:0,
       backgroundColor:"#fff",
-      opacity:0.9,
+      opacity:0.7,
       borderRadius:7
   },
   inputSearch:{

@@ -5,9 +5,11 @@ import {
   Dimensions,
   PermissionsAndroid
 } from 'react-native'
-import MapView, { Marker, ProviderPropType } from 'react-native-maps';
+import MapView, { Marker } from 'react-native-maps';
+import RNGooglePlaces from 'react-native-google-places'
 
 import SearchBox from '../components/SearchBox'
+import SearchResults from '../components/SearchResults';
 
 const { width, height } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
@@ -25,15 +27,15 @@ export default class Maps extends Component {
         longitude: LONGITUDE,
         latitudeDelta: LATITUDE_DELTA,
         longitudeDelta: LONGITUDE_DELTA,
-      }
+      },
+      searchPickup: false,
+      pickups: null,
+      destinations: null
     }
   }
   static navigationOptions = {
     title: 'Pickup Location',
   };
-
-  // const latDelta = Number(response.data.results[0].geometry.viewport.northeast.lat) - Number(response.data.results[0].geometry.viewport.southwest.lat)
-  // const lngDelta = Number(response.data.results[0].geometry.viewport.northeast.lng) - Number(response.data.results[0].geometry.viewport.southwest.lng)
 
   componentDidMount = () => {
     console.log('MAPS');
@@ -101,6 +103,42 @@ export default class Maps extends Component {
     })
   }
 
+  togglerSearch = (type) => {
+    if (type == 'pickUp') {
+      this.setState({searchPickup: true})
+    } else {
+      this.setState({searchPickup: false})
+    }
+  }
+
+  predictPickup = (e) => {
+    if (!e.length){
+      this.setState({
+        searchPickup: true,
+        pickups: null
+      }), console.log('toglED', this.state.pickups) 
+    } else {
+      RNGooglePlaces.getAutocompletePredictions(e, {country: 'ID'})
+      .then((results) => {
+        this.setState({pickups:results})
+      })
+      .catch((error) => console.log(error.message));
+    }
+  }
+
+  predictDestination = (e) => {
+    if (!e.length){
+      this.setState({
+        searchPickup: true,
+        pickups: null
+      }), console.log('toglED', this.state.pickups) 
+    } else {
+      RNGooglePlaces.getAutocompletePredictions(e, {country: 'ID'})
+      .then((results) => this.setState({destinations:results}))
+      .catch((error) => console.log(error.message));
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -122,7 +160,19 @@ export default class Maps extends Component {
             draggable
           />
         </MapView>
-        <SearchBox />
+        <SearchBox 
+          onChanges={{
+            pickup: this.predictPickup,
+            destination: this.predictDestination
+          }}
+          onFocus={this.togglerSearch}
+        />
+        {
+          (this.state.searchPickup && this.state.pickups) && <SearchResults predictions={this.state.pickups}/>
+        }
+        {
+          (!this.state.searchPickup && this.state.destinations) && <SearchResults predictions={this.state.destinations}/>
+        }
       </View>
     )
   }
@@ -131,12 +181,14 @@ export default class Maps extends Component {
 const styles = StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFillObject,
-    height: 400,
-    width: 400,
+    height: width,
+    width: width,
+    flex: 1,
     justifyContent: 'flex-end',
     alignItems: 'center',
   },
   map: {
     ...StyleSheet.absoluteFillObject,
+    flex: 1
   },
  });
