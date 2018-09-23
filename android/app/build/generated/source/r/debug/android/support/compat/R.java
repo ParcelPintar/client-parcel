@@ -24,8 +24,8 @@ public final class R {
     public static final class color {
         public static final int notification_action_color_filter = 0x7f040047;
         public static final int notification_icon_bg_color = 0x7f040048;
-        public static final int ripple_material_light = 0x7f040053;
-        public static final int secondary_text_default_material_light = 0x7f040055;
+        public static final int ripple_material_light = 0x7f040059;
+        public static final int secondary_text_default_material_light = 0x7f04005b;
     }
     public static final class dimen {
         public static final int compat_button_inset_horizontal_material = 0x7f05004b;
@@ -83,13 +83,13 @@ public final class R {
         public static final int notification_background = 0x7f070063;
         public static final int notification_main_column = 0x7f070064;
         public static final int notification_main_column_container = 0x7f070065;
-        public static final int right_icon = 0x7f07006c;
-        public static final int right_side = 0x7f07006d;
-        public static final int tag_transition_group = 0x7f070097;
-        public static final int text = 0x7f070099;
-        public static final int text2 = 0x7f07009a;
-        public static final int time = 0x7f07009d;
-        public static final int title = 0x7f07009e;
+        public static final int right_icon = 0x7f070074;
+        public static final int right_side = 0x7f070075;
+        public static final int tag_transition_group = 0x7f07009f;
+        public static final int text = 0x7f0700a1;
+        public static final int text2 = 0x7f0700a2;
+        public static final int time = 0x7f0700a5;
+        public static final int title = 0x7f0700a6;
     }
     public static final class integer {
         public static final int status_bar_notification_info_maxnum = 0x7f080005;
@@ -103,7 +103,7 @@ public final class R {
         public static final int notification_template_part_time = 0x7f09002e;
     }
     public static final class string {
-        public static final int status_bar_notification_info_overflow = 0x7f0c004e;
+        public static final int status_bar_notification_info_overflow = 0x7f0c0050;
     }
     public static final class style {
         public static final int TextAppearance_Compat_Notification = 0x7f0d00f2;

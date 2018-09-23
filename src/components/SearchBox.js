@@ -1,15 +1,48 @@
 import React from 'react'
-import { StyleSheet } from 'react-native'
+import { 
+  StyleSheet,
+  Dimensions
+} from 'react-native'
+import { View, InputGroup, Input, Text } from "native-base";
+import Icon from "react-native-vector-icons/FontAwesome";
+
+const {width} = Dimensions.get('window')
+
 
 const SearchBox = () => {
   return (
-    <div>
-      
-    </div>
+    <View style={styles.searchBox}>
+      <View style={styles.inputWrapper}>
+      <Text style={styles.label}>PICK-UP</Text>
+        <InputGroup>
+          <Icon name="search" size={15} color="#FF5E3A" />
+          <Input
+            // onFocus={() => toggleSearchResultModal("pickUp")}
+            style={styles.inputSearch}
+            placeholder="Choose pick-up location"
+            // onChangeText={handleInput.bind(this, "pickUp")}
+            // value={selectedPickUp && selectedPickUp.name}
+          />
+        </InputGroup>
+      </View>
+      <View style={styles.secondInputWrapper}>
+        <Text style={styles.label}>DESTINATION</Text>
+        <InputGroup>
+          <Icon name="search" size={15} color="#FF5E3A" />
+          <Input
+            // onFocus={() => toggleSearchResultModal("dropOff")}
+            style={styles.inputSearch}
+            placeholder="Choose destination location"
+            // onChangeText={handleInput.bind(this, "dropOff")}
+            // value={selectedDropOff && selectedDropOff.name}
+          />
+        </InputGroup>
+      </View>
+    </View>
   )
 }
 
-const styles = {
+const styles = StyleSheet.create({
   searchBox:{
       top:0,
       position:"absolute",
@@ -42,6 +75,6 @@ const styles = {
       marginTop:10,
       marginBottom:0
   }
-};
+});
 
 export default SearchBox

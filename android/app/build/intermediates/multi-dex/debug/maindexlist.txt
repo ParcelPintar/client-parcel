@@ -128,6 +128,7 @@ android/support/v7/view/menu/CascadingMenuPopup$HorizPosition.class
 android/support/v7/widget/LinearLayoutCompat$DividerMode.class
 android/support/v7/widget/LinearLayoutCompat$OrientationMode.class
 com/airbnb/android/react/maps/MapsPackage.class
+com/arttitude360/reactnative/rngoogleplaces/RNGooglePlacesPackage.class
 com/facebook/cache/disk/DefaultDiskStorage$FileType.class
 com/facebook/common/internal/DoNotStrip.class
 com/facebook/common/internal/Objects.class
@@ -201,6 +202,7 @@ com/google/android/gms/common/annotation/KeepForSdkWithFieldsAndMethods.class
 com/google/android/gms/common/annotation/KeepForSdkWithMembers.class
 com/google/android/gms/common/annotation/KeepName.class
 com/google/android/gms/common/util/DynamiteApi.class
+com/oblador/vectoricons/VectorIconsPackage.class
 com/parcel/BuildConfig.class
 com/parcel/MainApplication$1.class
 com/parcel/MainApplication.class

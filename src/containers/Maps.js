@@ -7,6 +7,8 @@ import {
 } from 'react-native'
 import MapView, { Marker, ProviderPropType } from 'react-native-maps';
 
+import SearchBox from '../components/SearchBox'
+
 const { width, height } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
 const LATITUDE = -6.1753924;
@@ -34,7 +36,7 @@ export default class Maps extends Component {
   // const lngDelta = Number(response.data.results[0].geometry.viewport.northeast.lng) - Number(response.data.results[0].geometry.viewport.southwest.lng)
 
   componentDidMount = () => {
-    console.log('MAPzS');
+    console.log('MAPS');
     this.requestLocPermission()
 
     navigator.geolocation.getCurrentPosition(
@@ -102,7 +104,6 @@ export default class Maps extends Component {
   render() {
     return (
       <View style={styles.container}>
-
         <MapView
           style={styles.map}
           showsUserLocation={true}
@@ -121,43 +122,8 @@ export default class Maps extends Component {
             draggable
           />
         </MapView>
-
-
+        <SearchBox />
       </View>
-
-
-      // <View style={styles.container}>
-      //   <MapView
-      //     provider={this.props.provider}
-      //     style={styles.map}
-      //     initialRegion={{
-      //       latitude: LATITUDE,
-      //       longitude: LONGITUDE,
-      //       latitudeDelta: LATITUDE_DELTA,
-      //       longitudeDelta: LONGITUDE_DELTA,
-      //     }}
-      //   >
-      //     <Marker
-      //       coordinate={this.state.a}
-      //       onSelect={(e) => log('onSelect', e)}
-      //       onDrag={(e) => log('onDrag', e)}
-      //       onDragStart={(e) => log('onDragStart', e)}
-      //       onDragEnd={(e) => log('onDragEnd', e)}
-      //       onPress={(e) => log('onPress', e)}
-      //       draggable
-      //     >
-      //     </Marker>
-      //     <Marker
-      //       coordinate={this.state.b}
-      //       onSelect={(e) => log('onSelect', e)}
-      //       onDrag={(e) => log('onDrag', e)}
-      //       onDragStart={(e) => log('onDragStart', e)}
-      //       onDragEnd={(e) => log('onDragEnd', e)}
-      //       onPress={(e) => log('onPress', e)}
-      //       draggable
-      //     />
-      //   </MapView>
-      // </View>
     )
   }
 }
