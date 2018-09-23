@@ -21,7 +21,7 @@ const SearchBox = (props) => {
             style={styles.inputSearch}
             placeholder="Choose pick-up location"
             onChangeText={props.onChanges.pickup}
-            // value={selectedPickUp && selectedPickUp.name}
+            value={props.selectedPickUp.name && props.selectedPickUp.name}
           />
         </InputGroup>
       </View>
@@ -34,7 +34,7 @@ const SearchBox = (props) => {
             style={styles.inputSearch}
             placeholder="Choose destination location"
             onChangeText={props.onChanges.destination}
-            // value={selectedDropOff && selectedDropOff.name}
+            value={props.selectedDestination.name && props.selectedDestination.name}
           />
         </InputGroup>
       </View>

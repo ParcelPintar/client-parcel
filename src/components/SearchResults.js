@@ -15,7 +15,7 @@ const SearchResults = (props) => {
         dataArray={props.predictions}
         renderRow={(item) =>
           <View>
-            <ListItem onPress={() => handleSelectedAddress(item.placeID)} button avatar>
+            <ListItem onPress={() => props.getCoords(item.placeID)} button avatar>
               <Left style={styles.leftContainer}>
                 <Icon style={styles.leftIcon} name="map-marker" />
               </Left>
@@ -28,7 +28,6 @@ const SearchResults = (props) => {
         }
       />
     </View>
-
   )
 }
 
