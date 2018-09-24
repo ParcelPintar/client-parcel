@@ -12,7 +12,7 @@ const {width} = Dimensions.get('window')
 const SearchBox = (props) => {
   return (
     <View style={styles.searchBox}>
-      <View style={styles.inputWrapper}>
+      {/* <View style={styles.inputWrapper}>
       <Text style={styles.label}>PICK-UP</Text>
         <InputGroup>
           <Icon name="search" size={15} color="#FF5E3A" />
@@ -24,15 +24,15 @@ const SearchBox = (props) => {
             value={props.selectedPickUp.name && props.selectedPickUp.name}
           />
         </InputGroup>
-      </View>
+      </View> */}
       <View style={styles.secondInputWrapper}>
-        <Text style={styles.label}>DESTINATION</Text>
+        <Text style={styles.label}>Your Location</Text>
         <InputGroup>
           <Icon name="search" size={15} color="#FF5E3A" />
           <Input
             onFocus={() => props.onFocus('destination')}
             style={styles.inputSearch}
-            placeholder="Choose destination location"
+            placeholder="Search your location"
             onChangeText={props.onChanges.destination}
             value={props.selectedDestination.name && props.selectedDestination.name}
           />
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   secondInputWrapper:{
       marginLeft:15,
       marginRight:10,
-      marginTop:0,
+      marginTop:10,
       backgroundColor:"#fff",
       opacity:0.7,
       borderRadius:7
