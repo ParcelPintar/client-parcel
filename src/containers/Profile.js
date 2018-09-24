@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, StyleSheet, Image } from "react-native";
+import { View, StyleSheet, Image , Dimensions} from "react-native";
 import { Text, Button } from "native-base";
 
 import Icon from "react-native-vector-icons/Ionicons";
@@ -7,7 +7,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 const styles = StyleSheet.create({
   mainRow: {
     flex: 1,
-    height: "100%",
+    height: Dimensions.get("window").height*0.87,
     backgroundColor: "white"
   },
   profilePic: {
