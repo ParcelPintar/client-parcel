@@ -12,7 +12,7 @@ import {
   Button,
   Thumbnail
 } from 'native-base'
-import MapView from 'react-native-maps'
+import MapView, { Marker, Polyline } from 'react-native-maps'
 const polyline = require('@mapbox/polyline');
 import axios from 'axios'
 
@@ -28,21 +28,51 @@ export default class OnGoingOrder extends Component {
   constructor(){
     super()
     this.state = {
-      initialRegion: {
-        latitude: LATITUDE,
-        longitude: LONGITUDE,
+      region: {
+        latitude: null,
+        longitude: null,
         latitudeDelta: LATITUDE_DELTA,
         longitudeDelta: LONGITUDE_DELTA,
       },
-      latitude: null,
-      longitude: null,
-      error: null,
+      // latitude: null,
+      // longitude: null,
       coords: [],
+      thereIsRoute: null,
+      destLatitude: -6.2372475,
+      destLongitude: 106.7803338
     }
   }
+
   static navigationOptions = {
     title: 'OnGoingOrder',
   };
+
+  componentDidMount = () => {
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        console.log('POS', position);
+        this.setState({
+          region: {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+            latitudeDelta: LATITUDE_DELTA,
+            longitudeDelta: LONGITUDE_DELTA,
+          }
+        });
+        this.startDrawLine()
+      },
+    (error) => console.log(error.message),
+    { enableHighAccuracy: true, timeout: 20000 },
+    );
+  }
+
+  startDrawLine = () => {
+    if (this.state.region.latitude != null && this.state.region.longitude != null) {
+      let locationNow = `${this.state.region.latitude},${this.state.region.longitude}`
+      
+      this.getDirections(locationNow, `${this.state.destLatitude},${this.state.destLongitude}`);
+    }
+  }
 
   getDirections = (start, destination) => {
     axios.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${ start }&destination=${ destination }&key=${ API_KEY }`)
@@ -55,9 +85,11 @@ export default class OnGoingOrder extends Component {
           }
         })
         this.setState({coords})
+        this.setState({thereIsRoute: true})
         console.log(coords)
       })
       .catch(err => {
+        this.setState({thereIsRoute: 'error'})
         console.log(err);
       })
   }
@@ -69,18 +101,52 @@ export default class OnGoingOrder extends Component {
           style={styles.map}
           showsUserLocation={true}
           region={this.state.region}
-          onRegionChangeComplete={(region) => {
-            this.setState({region})
-          }}
-          onLongPress={this.setRegion}
         >
-          <Marker
-            coordinate={this.state.region}
-            pinColor='blue'
-            onMarkerDragEnd={(e)=> console.log(e)}
-            onDragEnd={this.setRegion}
-            draggable
-          />
+          {
+            (this.state.region.latitude && this.state.region.longitude) &&
+            <Marker
+              coordinate={this.state.region}
+              title='Your Location'
+              pinColor='blue'
+            />
+          }
+          {
+            (this.state.destLatitude && this.state.destLongitude) &&
+            <Marker
+              coordinate={{
+                latitude: this.state.destLatitude,
+                longitude: this.state.destLongitude
+              }}
+              title='Your Parcel'
+              pinColor='red'
+            />
+          }
+          {
+            (this.state.region.latitude && this.state.region.longitude && this.state.thereIsRoute) &&
+            <Polyline
+              coordinates={this.state.coords}
+              strokeWidth={5}
+              strokeColor="blue"
+            />
+          }
+          {
+            (this.state.region.latitude && this.state.region.longitude && this.state.thereIsRoute == 'error') &&
+            <Polyline
+              coordinates={[
+                {
+                  latitude: this.state.region.latitude,
+                  longitude: this.state.region.longitude
+                },
+                {
+                  latitude: this.state.destLatitude,
+                  longitude: this.state.destLongitude
+                }
+              ]}
+              strokeWidth={5}
+              strokeColor="blue"
+            />
+          }
+          
         </MapView>
         
       </View>
@@ -101,13 +167,4 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     flex: 1
   },
-  middleButton: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  bottomButton: {
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
  });
