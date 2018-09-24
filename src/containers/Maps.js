@@ -71,23 +71,23 @@ export default class Maps extends Component {
     (error) => console.log(error.message),
     { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
     );
-    this.watchID = navigator.geolocation.watchPosition(
-      position => {
-        this.setState({
-          region: {
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-            latitudeDelta: LATITUDE_DELTA,
-            longitudeDelta: LONGITUDE_DELTA,
-          }
-        });
-      }
-    );    
+    // this.watchID = navigator.geolocation.watchPosition(
+    //   position => {
+    //     this.setState({
+    //       region: {
+    //         latitude: position.coords.latitude,
+    //         longitude: position.coords.longitude,
+    //         latitudeDelta: LATITUDE_DELTA,
+    //         longitudeDelta: LONGITUDE_DELTA,
+    //       }
+    //     });
+    //   }
+    // );    
   }
 
-  componentWillUnmount() {
-    navigator.geolocation.clearWatch(this.watchID);
-  }
+  // componentWillUnmount() {
+  //   navigator.geolocation.clearWatch(this.watchID);
+  // }
 
   requestLocPermission = async () => {
     try {
