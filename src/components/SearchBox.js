@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
       borderRadius:7
   },
   inputSearch:{
-      fontSize:14
+      fontSize:12
   },
   label:{
       fontSize:10,

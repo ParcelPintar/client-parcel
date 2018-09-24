@@ -208,11 +208,14 @@ export default class Maps extends Component {
       .catch((error) => console.log(error.message));
   }
 
-  getDistanceByPlaceId = () => {
+  getDistanceByCoords = () => {
     let baseUrl = 'https://maps.googleapis.com/maps/api/distancematrix/json?'
-    let origins = `origins=place_id:${this.state.selectedPickup.placeId}`
-    let destinations = `destinations=place_id:${this.state.selectedDestination.placeId}`
+    // let origins = `origins=place_id:${this.state.selectedPickup.placeId}`
+    // let destinations = `destinations=place_id:${this.state.selectedDestination.placeId}`
+    let origins = `origins=${this.state.selectedPickup.lat},${this.state.selectedPickup.long}`
+    let destinations = `destinations=${this.state.selectedDestination.lat},${this.state.selectedDestination.long}`
     let params = `${origins}&${destinations}&key=${API_KEY}`
+    
     axios.get(baseUrl + params)
       .then(({data}) => {
         console.log(data.rows[0].elements[0])
@@ -222,6 +225,39 @@ export default class Maps extends Component {
       })
   }
 
+  setPickupByMarker = () => {
+    let baseUrl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?'
+    let lat = this.state.region.latitude
+    let long = this.state.region.longitude
+    let location = `location=${lat},${long}`
+    let radius = `radius=100`
+
+    axios.get(`${baseUrl}${location}&${radius}&key=${API_KEY}`)
+      .then(({data}) => {
+        this.getCoordsPickup(data.results[1].place_id)
+        console.log(data.results[1].name);
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
+  setDestinationByMarker = () => {
+    let baseUrl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?'
+    let lat = this.state.region.latitude
+    let long = this.state.region.longitude
+    let location = `location=${lat},${long}`
+    let radius = `radius=100`
+
+    axios.get(`${baseUrl}${location}&${radius}&key=${API_KEY}`)
+      .then(({data}) => {
+        this.getCoordsDestination(data.results[1].place_id)
+        console.log(data.results[1].name);
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
 
   render() {
     return (
@@ -262,16 +298,33 @@ export default class Maps extends Component {
           <SearchResults predictions={this.state.destinations} getCoords={this.getCoordsDestination}
           />
         }
-        <View style={styles.middleButton}>
-          <Text style={{marginTop: 95}}>SET HERE</Text>
-        </View>
         {
           (this.state.selectedDestination.name && this.state.selectedPickup.name) &&
           <View style={styles.bottomButton}>
             <Button rounded info style={{marginBottom: 30}}
-              onPress={this.getDistanceByPlaceId}
+              onPress={this.getDistanceByCoords}
             >
               <Text> ORDER </Text>
+            </Button>
+          </View>
+        }
+        {
+          !this.state.selectedPickup.name && 
+          <View style={styles.middleButton}>
+            <Button rounded small info style={{ marginTop: 40 }}
+              onPress={this.setPickupByMarker}
+            >
+              <Text> SET PICK-UP HERE </Text>
+            </Button>
+          </View>
+        }
+        {
+          (!this.state.selectedDestination.name && this.state.selectedPickup.name) && 
+          <View style={styles.middleButton}>
+            <Button rounded small info style={{ marginTop: 40 }}
+              onPress={this.setDestinationByMarker}
+            >
+              <Text> SET DESTINATION HERE </Text>
             </Button>
           </View>
         }
@@ -283,7 +336,7 @@ export default class Maps extends Component {
 const styles = StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFillObject,
-    height: height * 0.97,
+    height: height * 0.82,
     width: width,
     flex: 1,
     justifyContent: 'flex-end',
