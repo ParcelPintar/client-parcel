@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
   mainRow: {
     flex: 1,
     height: "100%",
-    backgroundColor:"white"
+    backgroundColor: "white"
   },
   profilePic: {
     flex: 3,
@@ -21,12 +21,11 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   dataProfileBox: {
-    width: "95%",
+    width: "100%",
     height: "90%",
     backgroundColor: "#44b4ff",
     alignItems: "center",
-    justifyContent: "center",
-    borderRadius: 5
+    justifyContent: "center"
   },
   buttonEdit: {
     flex: 3,
@@ -34,13 +33,19 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   profile: {
-    fontSize: 20,
+    fontSize: 16,
     marginLeft: 10,
     color: "white"
   },
   iconWithProfile: {
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    margin: 10
+  },
+  username: {
+    fontSize: 30,
+    margin: 10,
+    color: "white"
   }
 });
 
@@ -48,13 +53,21 @@ export default class Profile extends Component {
   static navigationOptions = {
     title: "Profile"
   };
+  constructor() {
+    super();
+    this.state = {
+      name: "Suuusi",
+      email: "sushi@parcelpintar.com",
+      phone: "+62853119062"
+    };
+  }
 
   render() {
     return (
       <View style={styles.mainRow}>
         <View style={styles.profilePic}>
           <Image
-            style={{ width: 150, height: 150 }}
+            style={{ width: 100, height: 100 }}
             source={{
               uri:
                 "http://www.myiconfinder.com/uploads/iconsets/ac7256a56da1fa7c09a699ddec407e7e-human.png"
@@ -63,14 +76,14 @@ export default class Profile extends Component {
         </View>
         <View style={styles.dataProfile}>
           <View style={styles.dataProfileBox}>
-            <Text style={styles.profile}>Erithiana Sisijoan Koesnadi</Text>
+            <Text style={styles.username}>{this.state.name}</Text>
             <View style={styles.iconWithProfile}>
               <Icon name="ios-mail" color="white" size={30} />
-              <Text style={styles.profile}>joanlamrack@gmail.com</Text>
+              <Text style={styles.profile}>{this.state.email}</Text>
             </View>
             <View style={styles.iconWithProfile}>
               <Icon name="ios-call" color={"white"} size={30} />
-              <Text style={styles.profile}>+6285311906281</Text>
+              <Text style={styles.profile}>{this.state.phone}</Text>
             </View>
           </View>
         </View>
@@ -78,7 +91,6 @@ export default class Profile extends Component {
           <Button
             rounded
             info
-            large
             style={{ width: "90%", flex: 1, alignSelf: "center" }}
             onPress={() => {
               this.props.navigation.navigate("EditProfile");
