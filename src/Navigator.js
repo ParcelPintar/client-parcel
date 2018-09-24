@@ -25,6 +25,12 @@ const OrderStack = createStackNavigator(
   },
   {
     initialRouteName: 'Maps',
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: '#44b4ff'
+      },
+      headerTintColor: 'white'
+    },
   }
 )
 
@@ -35,7 +41,13 @@ const HistoryStack = createStackNavigator (
     OrderDetail
   },
   {
-    initialRouteName: 'OnGoingOrder'
+    initialRouteName: 'OnGoingOrder',
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: '#44b4ff'
+      },
+      headerTintColor: 'white'
+    },
   }
 )
 
@@ -45,7 +57,13 @@ const SettingsStack = createStackNavigator (
     EditProfile,
   },
   {
-    initialRouteName: 'Profile'
+    initialRouteName: 'Profile',
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: '#44b4ff'
+      },
+      headerTintColor: 'white'
+    },
   }
 )
 
@@ -57,12 +75,6 @@ const AppBotTab = createBottomTabNavigator (
   },
   {
     initialRouteName: 'New Order',
-    // navigationOptions: {
-    //   headerStyle: {
-    //     backgroundColor: '#3bd1b3'
-    //   },
-    //   headerTintColor: 'white'
-    // }
     navigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
@@ -74,10 +86,6 @@ const AppBotTab = createBottomTabNavigator (
           return (<FontAwesome5 name={'user-alt'} size={25} brand />)
         }
       },
-      headerStyle: {
-        backgroundColor: '#3bd1b3'
-      },
-      headerTintColor: 'white'
     }),
   },
   {

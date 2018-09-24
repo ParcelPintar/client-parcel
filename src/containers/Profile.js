@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   buttonEdit: {
     flex: 3,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   profile: {
     fontSize: 16,
@@ -90,8 +90,7 @@ export default class Profile extends Component {
         <View style={styles.buttonEdit}>
           <Button
             rounded
-            info
-            style={{ width: "90%", flex: 1, alignSelf: "center" }}
+            style={{ width: "90%", flex: 1, alignSelf: "center", backgroundColor: '#44b4ff' }}
             onPress={() => {
               this.props.navigation.navigate("EditProfile");
             }}

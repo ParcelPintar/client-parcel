@@ -4,7 +4,6 @@ import {
   View,
   Dimensions,
   PermissionsAndroid,
-  
 } from 'react-native'
 import {Button, Text} from 'native-base'
 import MapView, { Marker } from 'react-native-maps';
@@ -46,7 +45,9 @@ export default class Maps extends Component {
         name: null,
         lat: null,
         long: null
-      }
+      },
+      pickupQ: null,
+      destinationQ: null
     }
   }
   static navigationOptions = {
@@ -54,7 +55,7 @@ export default class Maps extends Component {
   };
 
   componentDidMount = () => {
-    console.log('MAPS');
+    console.log('MAPSX');
     this.requestLocPermission()
 
     navigator.geolocation.getCurrentPosition(
@@ -122,6 +123,7 @@ export default class Maps extends Component {
     if (type == 'pickUp') {
       this.setState({
         searchPickup: true,
+        pickupQ: null,
         selectedPickup:{
           ...this.state.selectedPickup,
           name: null
@@ -130,6 +132,7 @@ export default class Maps extends Component {
     } else {
       this.setState({
         searchPickup: false,
+        destinationQ: null,
         selectedDestination:{
           ...this.state.selectedDestination,
           name: null
@@ -145,6 +148,7 @@ export default class Maps extends Component {
         pickups: null
       })
     } else {
+      this.setState({pickupQ: e})
       RNGooglePlaces.getAutocompletePredictions(e, {country: 'ID'})
       .then((results) => {
         this.setState({pickups:results})
@@ -160,6 +164,7 @@ export default class Maps extends Component {
         destinations: null
       }) 
     } else {
+      this.setState({destinationQ: e})
       RNGooglePlaces.getAutocompletePredictions(e, {country: 'ID'})
       .then((results) => this.setState({destinations:results}))
       .catch((error) => console.log(error.message));
@@ -273,7 +278,7 @@ export default class Maps extends Component {
         >
           <Marker
             coordinate={this.state.region}
-            pinColor='blue'
+            pinColor='red'
             onMarkerDragEnd={(e)=> console.log(e)}
             onDragEnd={this.setRegion}
             draggable
@@ -309,7 +314,7 @@ export default class Maps extends Component {
           </View>
         }
         {
-          !this.state.selectedPickup.name && 
+          !this.state.selectedPickup.name && !this.state.searchPickup &&
           <View style={styles.middleButton}>
             <Button rounded small info style={{ marginTop: 40 }}
               onPress={this.setPickupByMarker}
