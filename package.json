@@ -7,10 +7,18 @@
     "test": "jest"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "native-base": "^2.8.0",
     "react": "16.5.0",
-    "react-native": "0.57.0"
+    "react-native": "0.57.0",
+    "react-native-google-places": "^2.5.2",
+    "react-native-maps": "^0.21.0",
+    "react-native-vector-icons": "^5.0.0",
+    "react-navigation": "^2.16.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-external-helpers": "^7.0.0",
     "babel-jest": "23.6.0",
     "jest": "23.6.0",
     "metro-react-native-babel-preset": "0.45.4",
