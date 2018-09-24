@@ -24,7 +24,7 @@ const OrderStack = createStackNavigator(
     ConfirmOrder 
   },
   {
-    initialRouteName: 'Maps'
+    initialRouteName: 'Maps',
   }
 )
 
@@ -57,6 +57,12 @@ const AppBotTab = createBottomTabNavigator (
   },
   {
     initialRouteName: 'New Order',
+    // navigationOptions: {
+    //   headerStyle: {
+    //     backgroundColor: '#3bd1b3'
+    //   },
+    //   headerTintColor: 'white'
+    // }
     navigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
@@ -68,6 +74,10 @@ const AppBotTab = createBottomTabNavigator (
           return (<FontAwesome5 name={'user-alt'} size={25} brand />)
         }
       },
+      headerStyle: {
+        backgroundColor: '#3bd1b3'
+      },
+      headerTintColor: 'white'
     }),
   },
   {

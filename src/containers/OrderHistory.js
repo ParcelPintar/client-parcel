@@ -7,6 +7,9 @@ import {
   Text, 
   Button 
 } from 'native-base'
+import OrderList from "../components/Orderlist";
+import Order from '../components/Order';
+
 
 export default class OrderHistory extends Component {
   static navigationOptions = {
@@ -16,12 +19,7 @@ export default class OrderHistory extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button rounded info onPress={() => {
-          this.props.navigation.navigate('OrderDetail')
-          }}
-        >
-          <Text> OrderDetail </Text>
-        </Button>
+        <OrderList/>
       </View>
     );
   }
@@ -32,6 +30,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    padding: 10
   },
 });
