@@ -213,7 +213,6 @@ export default class ConfirmOrder extends Component {
       </View>
     );
   }
-
 }
 
 const styles = StyleSheet.create({
