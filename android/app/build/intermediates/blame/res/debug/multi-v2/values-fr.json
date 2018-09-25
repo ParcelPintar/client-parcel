@@ -30,11 +30,28 @@
                         "endOffsets": "211,326,437,519,625,755,838,918,1004,1114,1226,1329,1440,1547,1654,1813,1912,1998"
                     },
                     "to": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,39",
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,41",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,216,331,442,524,630,760,843,923,1009,1119,1231,1334,1445,1552,1659,1818,5019",
+                        "startOffsets": "105,216,331,442,524,630,760,843,923,1009,1119,1231,1334,1445,1552,1659,1818,5226",
                         "endColumns": "110,114,110,81,105,129,82,79,85,109,111,102,110,106,106,158,98,85",
-                        "endOffsets": "211,326,437,519,625,755,838,918,1004,1114,1226,1329,1440,1547,1654,1813,1912,5100"
+                        "endOffsets": "211,326,437,519,625,755,838,918,1004,1114,1226,1329,1440,1547,1654,1813,1912,5307"
+                    }
+                },
+                {
+                    "source": "/Users/hacktiv8/.gradle/caches/transforms-1/files-1.1/play-services-gcm-11.8.0.aar/6ac6565073809d777cbb664e2b0095be/res/values-fr/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "228",
+                        "endColumns": "97",
+                        "endOffsets": "325"
+                    },
+                    "to": {
+                        "startLines": "38",
+                        "startColumns": "4",
+                        "startOffsets": "4913",
+                        "endColumns": "101",
+                        "endOffsets": "5010"
                     }
                 },
                 {
@@ -47,11 +64,28 @@
                         "endOffsets": "337,433"
                     },
                     "to": {
-                        "startLines": "37,38",
+                        "startLines": "39,40",
                         "startColumns": "4,4",
-                        "startOffsets": "4808,4919",
+                        "startOffsets": "5015,5126",
                         "endColumns": "110,99",
-                        "endOffsets": "4914,5014"
+                        "endOffsets": "5121,5221"
+                    }
+                },
+                {
+                    "source": "/Users/hacktiv8/.gradle/caches/transforms-1/files-1.1/firebase-messaging-11.8.0.aar/8e2fe71f28432c27fb9eee0ed90a5428/res/values-fr/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "241",
+                        "endColumns": "100",
+                        "endOffsets": "341"
+                    },
+                    "to": {
+                        "startLines": "37",
+                        "startColumns": "4",
+                        "startOffsets": "4808",
+                        "endColumns": "104",
+                        "endOffsets": "4908"
                     }
                 },
                 {
@@ -81,11 +115,11 @@
                         "endOffsets": "151"
                     },
                     "to": {
-                        "startLines": "40",
+                        "startLines": "42",
                         "startColumns": "4",
-                        "startOffsets": "5105",
+                        "startOffsets": "5312",
                         "endColumns": "100",
-                        "endOffsets": "5201"
+                        "endOffsets": "5408"
                     }
                 }
             ]

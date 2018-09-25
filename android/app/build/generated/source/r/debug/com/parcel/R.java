@@ -2622,6 +2622,7 @@ public final class R {
     public static final int switch_thumb_normal_material_light=0x7f040063;
     public static final int tooltip_background_dark=0x7f040064;
     public static final int tooltip_background_light=0x7f040065;
+    public static final int white=0x7f040066;
   }
   public static final class dimen {
     public static final int abc_action_bar_content_inset_material=0x7f050000;
@@ -3224,14 +3225,16 @@ public final class R {
     public static final int common_open_on_phone=0x7f0c0046;
     public static final int common_signin_button_text=0x7f0c0047;
     public static final int common_signin_button_text_long=0x7f0c0048;
-    public static final int image_button_description=0x7f0c0049;
-    public static final int image_description=0x7f0c004a;
-    public static final int link_description=0x7f0c004b;
-    public static final int place_autocomplete_clear_button=0x7f0c004c;
-    public static final int place_autocomplete_search_hint=0x7f0c004d;
-    public static final int search_description=0x7f0c004e;
-    public static final int search_menu_title=0x7f0c004f;
-    public static final int status_bar_notification_info_overflow=0x7f0c0050;
+    public static final int fcm_fallback_notification_channel_label=0x7f0c0049;
+    public static final int gcm_fallback_notification_channel_label=0x7f0c004a;
+    public static final int image_button_description=0x7f0c004b;
+    public static final int image_description=0x7f0c004c;
+    public static final int link_description=0x7f0c004d;
+    public static final int place_autocomplete_clear_button=0x7f0c004e;
+    public static final int place_autocomplete_search_hint=0x7f0c004f;
+    public static final int search_description=0x7f0c0050;
+    public static final int search_menu_title=0x7f0c0051;
+    public static final int status_bar_notification_info_overflow=0x7f0c0052;
   }
   public static final class style {
     public static final int AlertDialog_AppCompat=0x7f0d0000;

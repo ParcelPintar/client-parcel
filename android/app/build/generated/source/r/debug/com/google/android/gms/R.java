@@ -152,8 +152,10 @@ public final class R {
         public static final int common_open_on_phone = 0x7f0c0046;
         public static final int common_signin_button_text = 0x7f0c0047;
         public static final int common_signin_button_text_long = 0x7f0c0048;
-        public static final int place_autocomplete_clear_button = 0x7f0c004c;
-        public static final int place_autocomplete_search_hint = 0x7f0c004d;
+        public static final int fcm_fallback_notification_channel_label = 0x7f0c0049;
+        public static final int gcm_fallback_notification_channel_label = 0x7f0c004a;
+        public static final int place_autocomplete_clear_button = 0x7f0c004e;
+        public static final int place_autocomplete_search_hint = 0x7f0c004f;
     }
     public static final class styleable {
         public static final int[] LoadingImageView = { 0x7f020053, 0x7f020097, 0x7f020098 };
