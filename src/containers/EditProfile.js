@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class FloatingLabelExample extends Component {
+export default class EditProfile extends Component {
   static navigationOptions = {
     title: "Edit Profile"
   };

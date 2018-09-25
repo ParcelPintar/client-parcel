@@ -7,7 +7,7 @@ import {
   Text, 
   Button 
 } from 'native-base'
-import OrderList from "../components/Orderlist";
+import OrderList from "../components/OrderList";
 import Order from '../components/Order';
 
 
