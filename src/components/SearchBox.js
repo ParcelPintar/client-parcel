@@ -12,7 +12,7 @@ const {width} = Dimensions.get('window')
 const SearchBox = (props) => {
   return (
     <View style={styles.searchBox}>
-      {/* <View style={styles.inputWrapper}>
+      <View style={styles.inputWrapper}>
       <Text style={styles.label}>PICK-UP</Text>
         <InputGroup>
           <Icon name="search" size={15} color="#FF5E3A" />
@@ -24,7 +24,7 @@ const SearchBox = (props) => {
             value={props.selectedPickUp.name && props.selectedPickUp.name}
           />
         </InputGroup>
-      </View> */}
+      </View>
       <View style={styles.secondInputWrapper}>
         <Text style={styles.label}>Your Location</Text>
         <InputGroup>

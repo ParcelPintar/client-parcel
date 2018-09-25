@@ -55,7 +55,6 @@ export default class Maps extends Component {
   };
 
   componentDidMount = () => {
-    console.log('MAPSX');
     this.requestLocPermission()
 
     navigator.geolocation.getCurrentPosition(
@@ -141,21 +140,25 @@ export default class Maps extends Component {
     }
   }
 
-  // predictPickup = (e) => {
-  //   if (!e.length){
-  //     this.setState({
-  //       searchPickup: true,
-  //       pickups: null
-  //     })
-  //   } else {
-  //     this.setState({pickupQ: e})
-  //     RNGooglePlaces.getAutocompletePredictions(e, {country: 'ID'})
-  //     .then((results) => {
-  //       this.setState({pickups:results})
-  //     })
-  //     .catch((error) => console.log(error.message));
-  //   }
-  // }
+  predictPickup = (e) => {
+    if (!e.length){
+      this.setState({
+        searchPickup: true,
+        pickups: null,
+        selectedPickup:{
+          ...this.state.selectedPickup,
+          name: null
+        }
+      })
+    } else {
+      this.setState({pickupQ: e})
+      RNGooglePlaces.getAutocompletePredictions(e, {country: 'ID'})
+      .then((results) => {
+        this.setState({pickups:results})
+      })
+      .catch((error) => console.log(error.message));
+    }
+  }
 
   predictDestination = (e) => {
     if (!e.length){
@@ -175,26 +178,26 @@ export default class Maps extends Component {
     }
   }
 
-  // getCoordsPickup = (placeId) => {
-  //   console.log('coordP');
-  //   this.setState({
-  //     searchPickup: true,
-  //     pickups: null
-  //   })
+  getCoordsPickup = (placeId) => {
+    console.log('coordP');
+    this.setState({
+      searchPickup: true,
+      pickups: null
+    })
 
-  //   RNGooglePlaces.lookUpPlaceByID(placeId)
-  //     .then((results) => {
-  //       this.setState({
-  //         selectedPickup: {
-  //           placeId,
-  //           name: results.name,
-  //           lat: results.latitude,
-  //           long: results.longitude
-  //         }
-  //       })
-  //     })
-  //     .catch((error) => console.log(error.message));
-  // }
+    RNGooglePlaces.lookUpPlaceByID(placeId)
+      .then((results) => {
+        this.setState({
+          selectedPickup: {
+            placeId,
+            name: results.name,
+            lat: results.latitude,
+            long: results.longitude
+          }
+        })
+      })
+      .catch((error) => console.log(error.message));
+  }
 
   getCoordsDestination = (placeId) => {
     console.log('coordD');
@@ -221,35 +224,43 @@ export default class Maps extends Component {
     let baseUrl = 'https://maps.googleapis.com/maps/api/distancematrix/json?'
     // let origins = `origins=place_id:${this.state.selectedPickup.placeId}`
     // let destinations = `destinations=place_id:${this.state.selectedDestination.placeId}`
-    let origins = `origins=${-6.2607187},${106.7794275}`
+    let origins = `origins=${this.state.selectedPickup.lat},${this.state.selectedPickup.long}`
     let destinations = `destinations=${this.state.selectedDestination.lat},${this.state.selectedDestination.long}`
     let params = `${origins}&${destinations}&key=${API_KEY}`
     
     axios.get(baseUrl + params)
       .then(({data}) => {
         console.log(data.rows[0].elements[0])
+        this.checkout(data.rows[0].elements[0])
       })
       .catch(err => {
         console.log(err);
       })
   }
 
-  // setPickupByMarker = () => {
-  //   let baseUrl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?'
-  //   let lat = this.state.region.latitude
-  //   let long = this.state.region.longitude
-  //   let location = `location=${lat},${long}`
-  //   let radius = `radius=100`
+  checkout = (calculation) => {
+    let distance = calculation.distance.value
+    let duration = calculation.duration.text
+    let item = this.props.navigation.getParam('item')
+    this.props.navigation.navigate('ConfirmOrder', {distance, ETA: duration, item})
+  }
 
-  //   axios.get(`${baseUrl}${location}&${radius}&key=${API_KEY}`)
-  //     .then(({data}) => {
-  //       this.getCoordsPickup(data.results[1].place_id)
-  //       console.log(data.results[1].name);
-  //     })
-  //     .catch(err => {
-  //       console.log(err)
-  //     })
-  // }
+  setPickupByMarker = () => {
+    let baseUrl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?'
+    let lat = this.state.region.latitude
+    let long = this.state.region.longitude
+    let location = `location=${lat},${long}`
+    let radius = `radius=100`
+
+    axios.get(`${baseUrl}${location}&${radius}&key=${API_KEY}`)
+      .then(({data}) => {
+        this.getCoordsPickup(data.results[1].place_id)
+        console.log(data.results[1].name);
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
 
   setDestinationByMarker = () => {
     let baseUrl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?'
@@ -273,6 +284,7 @@ export default class Maps extends Component {
       <View style={styles.container}>
         <MapView
           style={styles.map}
+          showsUserLocation={true}
           region={this.state.region}
           onRegionChangeComplete={(region) => {
             this.setState({region})
@@ -289,7 +301,7 @@ export default class Maps extends Component {
         </MapView>
         <SearchBox 
           onChanges={{
-            // pickup: this.predictPickup,
+            pickup: this.predictPickup,
             destination: this.predictDestination
           }}
           onFocus={this.togglerSearch}
@@ -297,9 +309,9 @@ export default class Maps extends Component {
           selectedPickUp={this.state.selectedPickup}
         />
         {
-          // (this.state.searchPickup && this.state.pickups) && 
-          // <SearchResults predictions={this.state.pickups} getCoords={this.getCoordsPickup}
-          // />
+          (this.state.searchPickup && this.state.pickups) && 
+          <SearchResults predictions={this.state.pickups} getCoords={this.getCoordsPickup}
+          />
         }
         {
           (!this.state.searchPickup && this.state.destinations) && 
@@ -307,7 +319,7 @@ export default class Maps extends Component {
           />
         }
         {
-          (this.state.selectedDestination.name) &&
+          (this.state.selectedDestination.name && this.state.selectedPickup.name) &&
           <View style={styles.bottomButton}>
             <Button rounded info style={{marginBottom: 30}}
               onPress={this.getDistanceByCoords}
@@ -317,22 +329,22 @@ export default class Maps extends Component {
           </View>
         }
         {
-          // !this.state.selectedPickup.name && !this.state.searchPickup &&
-          // <View style={styles.middleButton}>
-          //   <Button rounded small info style={{ marginTop: 40 }}
-          //     onPress={this.setPickupByMarker}
-          //   >
-          //     <Text> SET PICK-UP HERE </Text>
-          //   </Button>
-          // </View>
+          !this.state.selectedPickup.name && !this.state.searchPickup &&
+          <View style={styles.middleButton}>
+            <Button rounded small info style={{ marginTop: 40 }}
+              onPress={this.setPickupByMarker}
+            >
+              <Text> SET PICK-UP HERE </Text>
+            </Button>
+          </View>
         }
         {
-          (!this.state.selectedDestination.name && this.state.destinationQ.length <=0) &&
+          (!this.state.selectedDestination.name && this.state.destinationQ.length <=0 && this.state.selectedPickup.name) &&
           <View style={styles.middleButton}>
             <Button rounded small info style={{ marginTop: 40 }}
               onPress={this.setDestinationByMarker}
             >
-              <Text> SET YOUR LOCATION HERE </Text>
+              <Text> SET DESTINATION HERE </Text>
             </Button>
           </View>
         }

@@ -1,7 +1,7 @@
-#Tue Sep 25 04:54:31 WIB 2018
-base.0=/home/brian/Desktop/client-parcel/android/app/build/intermediates/transforms/dexMerger/debug/0
+#Tue Sep 25 09:45:55 WIB 2018
+base.0=/Users/hacktiv8/Desktop/client-parcel/android/app/build/intermediates/transforms/dexMerger/debug/0
 path.1=classes2.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=/home/brian/Desktop/client-parcel/android/app/build/intermediates/transforms/dexMerger/debug/0
+base.1=/Users/hacktiv8/Desktop/client-parcel/android/app/build/intermediates/transforms/dexMerger/debug/0

@@ -21,7 +21,7 @@ import Register from './containers/Register'
 const OrderStack = createStackNavigator(
   { 
     Home: NewOrder,
-    Checkout, 
+    // Checkout, 
     Maps,
     ConfirmOrder 
   },

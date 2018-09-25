@@ -10,20 +10,15 @@ import {
 
 export default class ConfirmOrder extends Component {
   static navigationOptions = {
-    title: 'ConfirmOrder',
+    title: 'Order Detail',
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <View style={{alignSelf: 'center'}}>
-          <Button rounded info onPress={() => {
-            this.props.navigation.navigate('Maps')
-            }}
-          >
-            <Text> BACK </Text>
-          </Button>
-        </View>
+        <Text>{JSON.stringify(this.props.navigation.getParam('distance'))}</Text>
+        <Text>{JSON.stringify(this.props.navigation.getParam('ETA'))}</Text>
+        <Text>{JSON.stringify(this.props.navigation.getParam('item'))}</Text>
       </View>
     );
   }

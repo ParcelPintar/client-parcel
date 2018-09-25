@@ -11,90 +11,53 @@ import {
   Body,
   Title,
   Right,
-  Button ,
+  Button,
   Text
 } from 'native-base'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 import ItemList from '../components/ItemList'
 
-const items = [
-  {
-    name: 'test',
-    image: 'https://vignette.wikia.nocookie.net/project-pokemon/images/4/47/Placeholder.png/revision/latest?cb=20170330235552',
-    price: 50000,
-    // stock: 5,
-    shortDesc: 'Perfect for your loved one'
-  },
-  {
-    name: 'test',
-    image: 'https://vignette.wikia.nocookie.net/project-pokemon/images/4/47/Placeholder.png/revision/latest?cb=20170330235552',
-    price: 50000,
-    stock: 5,
-    shortDesc: 'Perfect for your loved one'
-  },
-  {
-    name: 'test',
-    image: 'https://vignette.wikia.nocookie.net/project-pokemon/images/4/47/Placeholder.png/revision/latest?cb=20170330235552',
-    price: 50000,
-    stock: 5,
-    shortDesc: 'Perfect for your loved one'
-  },
-  {
-    name: 'test',
-    image: 'https://vignette.wikia.nocookie.net/project-pokemon/images/4/47/Placeholder.png/revision/latest?cb=20170330235552',
-    price: 50000,
-    stock: 5,
-    shortDesc: 'Perfect for your loved one'
-  },
-  {
-    name: 'test',
-    image: 'https://vignette.wikia.nocookie.net/project-pokemon/images/4/47/Placeholder.png/revision/latest?cb=20170330235552',
-    price: 50000,
-    stock: 5,
-    shortDesc: 'Perfect for your loved one'
-  },
-  {
-    name: 'test',
-    image: 'https://vignette.wikia.nocookie.net/project-pokemon/images/4/47/Placeholder.png/revision/latest?cb=20170330235552',
-    price: 50000,
-    stock: 5,
-    shortDesc: 'Perfect for your loved one'
-  },
-  {
-    name: 'test',
-    image: 'https://vignette.wikia.nocookie.net/project-pokemon/images/4/47/Placeholder.png/revision/latest?cb=20170330235552',
-    price: 50000,
-    stock: 5,
-    shortDesc: 'Perfect for your loved one'
-  }
-]
-
 export default class NewOrder extends Component {
   constructor(){
     super()
     this.state = {
-      cart: [],
-      total: 0
+      items: [
+        {
+          name: 'Small Parcel Pintar',
+          image: 'https://vignette.wikia.nocookie.net/project-pokemon/images/4/47/Placeholder.png/revision/latest?cb=20170330235552',
+          size: '15 cm x 15 cm x 15 cm',
+          type: 's'
+        },
+        {
+          name: 'Medium Parcel Pintar',
+          image: 'https://vignette.wikia.nocookie.net/project-pokemon/images/4/47/Placeholder.png/revision/latest?cb=20170330235552',
+          size: '30 cm x 30 cm x 30 cm',
+          type: 'm'
+        },
+        {
+          name: 'Large Parcel Pintar',
+          image: 'https://vignette.wikia.nocookie.net/project-pokemon/images/4/47/Placeholder.png/revision/latest?cb=20170330235552',
+          size: '50 cm x 50 cm x 50 cm',
+          type: 'l'
+        },
+      ],
     }
   }
   static navigationOptions = {
-    header: null
+    title: 'Select your Parcel Pintar'
   };
 
-  addToCart = (item) => {
-    this.setState({
-      total: this.state.total + 1,
-      cart: [...this.state.cart, item]
-    })
+  proceed = (item) => {
+    this.props.navigation.navigate('Maps', {item})
   }
 
   render() {
     return (
       <Container>
-        <Header style={{backgroundColor: '#44b4ff'}}>
+        {/* <Header style={{backgroundColor: '#44b4ff'}}>
           <Body>
-            <Title>  Parcel Pintar</Title>
+            <Title>  Select your Parcel Pintar</Title>
           </Body>
           <Right>
             <Button small transparent onPress={() => this.props.navigation.navigate('Checkout', {cart: this.state.cart})}>
@@ -102,19 +65,19 @@ export default class NewOrder extends Component {
               <Text>{this.state.total} </Text>
             </Button>
           </Right>
-        </Header>
+        </Header> */}
         <Content padder>
           <List>
             <FlatList
-              data={items}
+              data={this.state.items}
               renderItem={({ item, index }) => (
                 <ItemList
                   name={item.name}
                   image={item.image}
-                  price={item.price}
-                  stock={item.stock}
-                  shortDesc={item.shortDesc}
-                  onPress={() => this.addToCart(item)}
+                  size={item.size}
+                  // stock={item.stock}
+                  // shortDesc={item.shortDesc}
+                  onPress={() => this.proceed(item)}
                 />
               )}
             />
