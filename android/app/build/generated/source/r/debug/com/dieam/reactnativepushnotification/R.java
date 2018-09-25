@@ -72,7 +72,6 @@ public final class R {
         public static final int allowStacking = 0x7f020029;
         public static final int alpha = 0x7f02002a;
         public static final int alphabeticModifiers = 0x7f02002b;
-        public static final int ambientEnabled = 0x7f02002c;
         public static final int arrowHeadLength = 0x7f02002d;
         public static final int arrowShaftLength = 0x7f02002e;
         public static final int autoCompleteTextViewStyle = 0x7f02002f;
@@ -102,13 +101,6 @@ public final class R {
         public static final int buttonStyleSmall = 0x7f020047;
         public static final int buttonTint = 0x7f020048;
         public static final int buttonTintMode = 0x7f020049;
-        public static final int cameraBearing = 0x7f02004a;
-        public static final int cameraMaxZoomPreference = 0x7f02004b;
-        public static final int cameraMinZoomPreference = 0x7f02004c;
-        public static final int cameraTargetLat = 0x7f02004d;
-        public static final int cameraTargetLng = 0x7f02004e;
-        public static final int cameraTilt = 0x7f02004f;
-        public static final int cameraZoom = 0x7f020050;
         public static final int checkboxStyle = 0x7f020051;
         public static final int checkedTextViewStyle = 0x7f020052;
         public static final int circleCrop = 0x7f020053;
@@ -187,10 +179,6 @@ public final class R {
         public static final int isLightTheme = 0x7f02009c;
         public static final int itemPadding = 0x7f02009d;
         public static final int keylines = 0x7f02009e;
-        public static final int latLngBoundsNorthEastLatitude = 0x7f02009f;
-        public static final int latLngBoundsNorthEastLongitude = 0x7f0200a0;
-        public static final int latLngBoundsSouthWestLatitude = 0x7f0200a1;
-        public static final int latLngBoundsSouthWestLongitude = 0x7f0200a2;
         public static final int layout = 0x7f0200a3;
         public static final int layout_anchor = 0x7f0200a4;
         public static final int layout_anchorGravity = 0x7f0200a5;
@@ -209,10 +197,8 @@ public final class R {
         public static final int listPreferredItemHeightSmall = 0x7f0200b2;
         public static final int listPreferredItemPaddingLeft = 0x7f0200b3;
         public static final int listPreferredItemPaddingRight = 0x7f0200b4;
-        public static final int liteMode = 0x7f0200b5;
         public static final int logo = 0x7f0200b6;
         public static final int logoDescription = 0x7f0200b7;
-        public static final int mapType = 0x7f0200b8;
         public static final int maxButtonHeight = 0x7f0200b9;
         public static final int measureWithLargestChild = 0x7f0200ba;
         public static final int multiChoiceItemLayout = 0x7f0200bb;
@@ -332,14 +318,6 @@ public final class R {
         public static final int track = 0x7f02012d;
         public static final int trackTint = 0x7f02012e;
         public static final int trackTintMode = 0x7f02012f;
-        public static final int uiCompass = 0x7f020130;
-        public static final int uiMapToolbar = 0x7f020131;
-        public static final int uiRotateGestures = 0x7f020132;
-        public static final int uiScrollGestures = 0x7f020133;
-        public static final int uiTiltGestures = 0x7f020134;
-        public static final int uiZoomControls = 0x7f020135;
-        public static final int uiZoomGestures = 0x7f020136;
-        public static final int useViewLifecycle = 0x7f020137;
         public static final int viewAspectRatio = 0x7f020138;
         public static final int viewInflaterClass = 0x7f020139;
         public static final int voiceIcon = 0x7f02013a;
@@ -353,7 +331,6 @@ public final class R {
         public static final int windowMinWidthMajor = 0x7f020142;
         public static final int windowMinWidthMinor = 0x7f020143;
         public static final int windowNoTitle = 0x7f020144;
-        public static final int zOrderOnTop = 0x7f020145;
     }
     public static final class bool {
         public static final int abc_action_bar_embed_tabs = 0x7f030000;
@@ -436,12 +413,6 @@ public final class R {
         public static final int notification_action_color_filter = 0x7f040047;
         public static final int notification_icon_bg_color = 0x7f040048;
         public static final int notification_material_background_media_default_color = 0x7f040049;
-        public static final int place_autocomplete_prediction_primary_text = 0x7f04004a;
-        public static final int place_autocomplete_prediction_primary_text_highlight = 0x7f04004b;
-        public static final int place_autocomplete_prediction_secondary_text = 0x7f04004c;
-        public static final int place_autocomplete_search_hint = 0x7f04004d;
-        public static final int place_autocomplete_search_text = 0x7f04004e;
-        public static final int place_autocomplete_separator = 0x7f04004f;
         public static final int primary_dark_material_dark = 0x7f040050;
         public static final int primary_dark_material_light = 0x7f040051;
         public static final int primary_material_dark = 0x7f040052;
@@ -570,16 +541,6 @@ public final class R {
         public static final int notification_subtext_size = 0x7f050065;
         public static final int notification_top_pad = 0x7f050066;
         public static final int notification_top_pad_large_text = 0x7f050067;
-        public static final int place_autocomplete_button_padding = 0x7f050068;
-        public static final int place_autocomplete_powered_by_google_height = 0x7f050069;
-        public static final int place_autocomplete_powered_by_google_start = 0x7f05006a;
-        public static final int place_autocomplete_prediction_height = 0x7f05006b;
-        public static final int place_autocomplete_prediction_horizontal_margin = 0x7f05006c;
-        public static final int place_autocomplete_prediction_primary_text = 0x7f05006d;
-        public static final int place_autocomplete_prediction_secondary_text = 0x7f05006e;
-        public static final int place_autocomplete_progress_horizontal_margin = 0x7f05006f;
-        public static final int place_autocomplete_progress_size = 0x7f050070;
-        public static final int place_autocomplete_separator_start = 0x7f050071;
         public static final int tooltip_corner_radius = 0x7f050072;
         public static final int tooltip_horizontal_padding = 0x7f050073;
         public static final int tooltip_margin = 0x7f050074;
@@ -706,10 +667,6 @@ public final class R {
         public static final int notification_template_icon_low_bg = 0x7f060073;
         public static final int notification_tile_bg = 0x7f060074;
         public static final int notify_panel_notification_icon_bg = 0x7f060075;
-        public static final int places_ic_clear = 0x7f060076;
-        public static final int places_ic_search = 0x7f060077;
-        public static final int powered_by_google_dark = 0x7f060078;
-        public static final int powered_by_google_light = 0x7f060079;
         public static final int tooltip_frame_dark = 0x7f06007a;
         public static final int tooltip_frame_light = 0x7f06007b;
     }
@@ -772,7 +729,6 @@ public final class R {
         public static final int forever = 0x7f07004a;
         public static final int fps_text = 0x7f07004b;
         public static final int home = 0x7f07004c;
-        public static final int hybrid = 0x7f07004e;
         public static final int icon = 0x7f07004f;
         public static final int icon_group = 0x7f070050;
         public static final int icon_only = 0x7f070051;
@@ -794,14 +750,6 @@ public final class R {
         public static final int notification_main_column = 0x7f070064;
         public static final int notification_main_column_container = 0x7f070065;
         public static final int parentPanel = 0x7f070066;
-        public static final int place_autocomplete_clear_button = 0x7f070067;
-        public static final int place_autocomplete_powered_by_google = 0x7f070068;
-        public static final int place_autocomplete_prediction_primary_text = 0x7f070069;
-        public static final int place_autocomplete_prediction_secondary_text = 0x7f07006a;
-        public static final int place_autocomplete_progress = 0x7f07006b;
-        public static final int place_autocomplete_search_button = 0x7f07006c;
-        public static final int place_autocomplete_search_input = 0x7f07006d;
-        public static final int place_autocomplete_separator = 0x7f07006e;
         public static final int progress_circular = 0x7f07006f;
         public static final int progress_horizontal = 0x7f070070;
         public static final int radio = 0x7f070071;
@@ -819,7 +767,6 @@ public final class R {
         public static final int rn_redbox_report_button = 0x7f07007d;
         public static final int rn_redbox_report_label = 0x7f07007e;
         public static final int rn_redbox_stack = 0x7f07007f;
-        public static final int satellite = 0x7f070080;
         public static final int screen = 0x7f070081;
         public static final int scrollIndicatorDown = 0x7f070082;
         public static final int scrollIndicatorUp = 0x7f070083;
@@ -848,7 +795,6 @@ public final class R {
         public static final int submit_area = 0x7f07009d;
         public static final int tabMode = 0x7f07009e;
         public static final int tag_transition_group = 0x7f07009f;
-        public static final int terrain = 0x7f0700a0;
         public static final int text = 0x7f0700a1;
         public static final int text2 = 0x7f0700a2;
         public static final int textSpacerNoButtons = 0x7f0700a3;
@@ -919,10 +865,6 @@ public final class R {
         public static final int notification_template_media_custom = 0x7f09002c;
         public static final int notification_template_part_chronometer = 0x7f09002d;
         public static final int notification_template_part_time = 0x7f09002e;
-        public static final int place_autocomplete_fragment = 0x7f09002f;
-        public static final int place_autocomplete_item_powered_by_google = 0x7f090030;
-        public static final int place_autocomplete_item_prediction = 0x7f090031;
-        public static final int place_autocomplete_progress = 0x7f090032;
         public static final int redbox_item_frame = 0x7f090033;
         public static final int redbox_item_title = 0x7f090034;
         public static final int redbox_view = 0x7f090035;
@@ -1004,16 +946,13 @@ public final class R {
         public static final int common_open_on_phone = 0x7f0c0046;
         public static final int common_signin_button_text = 0x7f0c0047;
         public static final int common_signin_button_text_long = 0x7f0c0048;
-        public static final int fcm_fallback_notification_channel_label = 0x7f0c0049;
-        public static final int gcm_fallback_notification_channel_label = 0x7f0c004a;
-        public static final int image_button_description = 0x7f0c004b;
-        public static final int image_description = 0x7f0c004c;
-        public static final int link_description = 0x7f0c004d;
-        public static final int place_autocomplete_clear_button = 0x7f0c004e;
-        public static final int place_autocomplete_search_hint = 0x7f0c004f;
-        public static final int search_description = 0x7f0c0050;
-        public static final int search_menu_title = 0x7f0c0051;
-        public static final int status_bar_notification_info_overflow = 0x7f0c0052;
+        public static final int gcm_fallback_notification_channel_label = 0x7f0c004c;
+        public static final int image_button_description = 0x7f0c0051;
+        public static final int image_description = 0x7f0c0052;
+        public static final int link_description = 0x7f0c0053;
+        public static final int search_description = 0x7f0c0057;
+        public static final int search_menu_title = 0x7f0c0058;
+        public static final int status_bar_notification_info_overflow = 0x7f0c0059;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat = 0x7f0d0000;
@@ -1681,30 +1620,6 @@ public final class R {
         public static final int LoadingImageView_circleCrop = 0;
         public static final int LoadingImageView_imageAspectRatio = 1;
         public static final int LoadingImageView_imageAspectRatioAdjust = 2;
-        public static final int[] MapAttrs = { 0x7f02002c, 0x7f02004a, 0x7f02004b, 0x7f02004c, 0x7f02004d, 0x7f02004e, 0x7f02004f, 0x7f020050, 0x7f02009f, 0x7f0200a0, 0x7f0200a1, 0x7f0200a2, 0x7f0200b5, 0x7f0200b8, 0x7f020130, 0x7f020131, 0x7f020132, 0x7f020133, 0x7f020134, 0x7f020135, 0x7f020136, 0x7f020137, 0x7f020145 };
-        public static final int MapAttrs_ambientEnabled = 0;
-        public static final int MapAttrs_cameraBearing = 1;
-        public static final int MapAttrs_cameraMaxZoomPreference = 2;
-        public static final int MapAttrs_cameraMinZoomPreference = 3;
-        public static final int MapAttrs_cameraTargetLat = 4;
-        public static final int MapAttrs_cameraTargetLng = 5;
-        public static final int MapAttrs_cameraTilt = 6;
-        public static final int MapAttrs_cameraZoom = 7;
-        public static final int MapAttrs_latLngBoundsNorthEastLatitude = 8;
-        public static final int MapAttrs_latLngBoundsNorthEastLongitude = 9;
-        public static final int MapAttrs_latLngBoundsSouthWestLatitude = 10;
-        public static final int MapAttrs_latLngBoundsSouthWestLongitude = 11;
-        public static final int MapAttrs_liteMode = 12;
-        public static final int MapAttrs_mapType = 13;
-        public static final int MapAttrs_uiCompass = 14;
-        public static final int MapAttrs_uiMapToolbar = 15;
-        public static final int MapAttrs_uiRotateGestures = 16;
-        public static final int MapAttrs_uiScrollGestures = 17;
-        public static final int MapAttrs_uiTiltGestures = 18;
-        public static final int MapAttrs_uiZoomControls = 19;
-        public static final int MapAttrs_uiZoomGestures = 20;
-        public static final int MapAttrs_useViewLifecycle = 21;
-        public static final int MapAttrs_zOrderOnTop = 22;
         public static final int[] MenuGroup = { 0x0101000e, 0x010100d0, 0x01010194, 0x010101de, 0x010101df, 0x010101e0 };
         public static final int MenuGroup_android_enabled = 0;
         public static final int MenuGroup_android_id = 1;
