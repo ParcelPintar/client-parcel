@@ -6,7 +6,8 @@ import {
 } from 'react-native';
 import {
   Text, 
-  Button 
+  Button,
+  Thumbnail 
 } from 'native-base'
 
 export default class Welcome extends Component {
@@ -18,8 +19,8 @@ export default class Welcome extends Component {
     return (
       <View style={styles.container}>
         <Text style={{fontSize: 36}}>Parcel Pintar</Text>
-        <Text style={{fontSize: 10}}>Logo Here..</Text>
-        <Text style={{fontSize: 16}}>Not just a parcel! (slogan)</Text>
+        <Thumbnail large source={require(`../public/img/pp-logo.png`)} />
+        <Text style={{fontSize: 16}}>Not just a parcel!</Text>
         <View style={{ alignSelf: "center" }}>
           <Button rounded info onPress={() => {
             this.props.navigation.navigate('Login')

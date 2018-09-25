@@ -26,13 +26,13 @@ const SearchBox = (props) => {
         </InputGroup>
       </View>
       <View style={styles.secondInputWrapper}>
-        <Text style={styles.label}>DESTINATION</Text>
+        <Text style={styles.label}>Your Location</Text>
         <InputGroup>
           <Icon name="search" size={15} color="#FF5E3A" />
           <Input
             onFocus={() => props.onFocus('destination')}
             style={styles.inputSearch}
-            placeholder="Choose destination location"
+            placeholder="Search your location"
             onChangeText={props.onChanges.destination}
             value={props.selectedDestination.name && props.selectedDestination.name}
           />
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   secondInputWrapper:{
       marginLeft:15,
       marginRight:10,
-      marginTop:0,
+      marginTop:10,
       backgroundColor:"#fff",
       opacity:0.7,
       borderRadius:7

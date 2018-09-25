@@ -4,7 +4,6 @@ import {
   View,
   Dimensions,
   PermissionsAndroid,
-  
 } from 'react-native'
 import {Button, Text} from 'native-base'
 import MapView, { Marker } from 'react-native-maps';
@@ -46,15 +45,16 @@ export default class Maps extends Component {
         name: null,
         lat: null,
         long: null
-      }
+      },
+      pickupQ: '',
+      destinationQ: ''
     }
   }
   static navigationOptions = {
-    title: 'Pickup Location',
+    title: 'Select Your Location',
   };
 
   componentDidMount = () => {
-    console.log('MAPS');
     this.requestLocPermission()
 
     navigator.geolocation.getCurrentPosition(
@@ -69,7 +69,7 @@ export default class Maps extends Component {
         });
       },
     (error) => console.log(error.message),
-    { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
+    { enableHighAccuracy: true, timeout: 20000 },
     );
     // this.watchID = navigator.geolocation.watchPosition(
     //   position => {
@@ -122,6 +122,7 @@ export default class Maps extends Component {
     if (type == 'pickUp') {
       this.setState({
         searchPickup: true,
+        pickupQ: '',
         selectedPickup:{
           ...this.state.selectedPickup,
           name: null
@@ -130,6 +131,7 @@ export default class Maps extends Component {
     } else {
       this.setState({
         searchPickup: false,
+        destinationQ: '',
         selectedDestination:{
           ...this.state.selectedDestination,
           name: null
@@ -142,9 +144,14 @@ export default class Maps extends Component {
     if (!e.length){
       this.setState({
         searchPickup: true,
-        pickups: null
+        pickups: null,
+        selectedPickup:{
+          ...this.state.selectedPickup,
+          name: null
+        }
       })
     } else {
+      this.setState({pickupQ: e})
       RNGooglePlaces.getAutocompletePredictions(e, {country: 'ID'})
       .then((results) => {
         this.setState({pickups:results})
@@ -157,9 +164,14 @@ export default class Maps extends Component {
     if (!e.length){
       this.setState({
         searchPickup: false,
-        destinations: null
+        destinations: null,
+        selectedDestination:{
+          ...this.state.selectedDestination,
+          name: null
+        }
       }) 
     } else {
+      this.setState({destinationQ: e})
       RNGooglePlaces.getAutocompletePredictions(e, {country: 'ID'})
       .then((results) => this.setState({destinations:results}))
       .catch((error) => console.log(error.message));
@@ -219,10 +231,18 @@ export default class Maps extends Component {
     axios.get(baseUrl + params)
       .then(({data}) => {
         console.log(data.rows[0].elements[0])
+        this.checkout(data.rows[0].elements[0])
       })
       .catch(err => {
         console.log(err);
       })
+  }
+
+  checkout = (calculation) => {
+    let distance = calculation.distance.value
+    let duration = calculation.duration.text
+    let item = this.props.navigation.getParam('item')
+    this.props.navigation.navigate('ConfirmOrder', {distance, ETA: duration, item})
   }
 
   setPickupByMarker = () => {
@@ -273,7 +293,7 @@ export default class Maps extends Component {
         >
           <Marker
             coordinate={this.state.region}
-            pinColor='blue'
+            pinColor='red'
             onMarkerDragEnd={(e)=> console.log(e)}
             onDragEnd={this.setRegion}
             draggable
@@ -309,7 +329,7 @@ export default class Maps extends Component {
           </View>
         }
         {
-          !this.state.selectedPickup.name && 
+          !this.state.selectedPickup.name && !this.state.searchPickup &&
           <View style={styles.middleButton}>
             <Button rounded small info style={{ marginTop: 40 }}
               onPress={this.setPickupByMarker}
@@ -319,7 +339,7 @@ export default class Maps extends Component {
           </View>
         }
         {
-          (!this.state.selectedDestination.name && this.state.selectedPickup.name) && 
+          (!this.state.selectedDestination.name && this.state.destinationQ.length <=0 && this.state.selectedPickup.name) &&
           <View style={styles.middleButton}>
             <Button rounded small info style={{ marginTop: 40 }}
               onPress={this.setDestinationByMarker}
