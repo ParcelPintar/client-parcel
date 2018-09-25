@@ -27,10 +27,6 @@ export default class Welcome extends Component {
           }}> 
             <Text> Login </Text>
           </Button>
-
-          <Button rounded info onPress={() => {
-            this.props.navigation.navigate('Maps')
-          }}> 
             <Text> MAPS </Text>
           </Button>
         </View>

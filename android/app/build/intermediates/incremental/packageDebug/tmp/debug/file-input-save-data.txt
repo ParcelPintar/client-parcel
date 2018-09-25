@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Sep 25 09:45:56 WIB 2018
+#Tue Sep 25 16:04:58 WIB 2018
 5.base=/Users/hacktiv8/Desktop/client-parcel/android/app/build/intermediates/assets/debug
 42.base=/Users/hacktiv8/Desktop/client-parcel/android/app/build/intermediates/transforms/mergeJniLibs/debug/0
 22.path=fonts/Roboto_medium.ttf
