@@ -4,6 +4,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Icon from "react-native-vector-icons/FontAwesome";
 
 import NewOrder from './containers/NewOrder'
+import Checkout from './containers/Checkout'
 import Maps from './containers/Maps'
 import ConfirmOrder from './containers/ConfirmOrder'
 import OnGoingOrder from './containers/OnGoingOrder'
@@ -19,12 +20,13 @@ import Register from './containers/Register'
 
 const OrderStack = createStackNavigator(
   { 
-    // NewOrder, 
+    Home: NewOrder,
+    Checkout, 
     Maps,
     ConfirmOrder 
   },
   {
-    initialRouteName: 'Maps',
+    initialRouteName: 'Home',
     navigationOptions: {
       headerStyle: {
         backgroundColor: '#44b4ff'

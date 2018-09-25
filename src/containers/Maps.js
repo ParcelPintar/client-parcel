@@ -51,7 +51,7 @@ export default class Maps extends Component {
     }
   }
   static navigationOptions = {
-    title: 'Pickup Location',
+    title: 'Select Your Location',
   };
 
   componentDidMount = () => {
