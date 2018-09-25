@@ -1,9 +1,12 @@
 import React, { Component } from "react";
-import { View, StyleSheet, Image, Alert } from "react-native";
 import {
-  Container,
-  Header,
-  Content,
+  View,
+  StyleSheet,
+  Image,
+  Dimensions,
+  ScrollView
+} from "react-native";
+import {
   Form,
   Item,
   Input,
@@ -16,11 +19,14 @@ import {
 import Icon from "react-native-vector-icons/Ionicons";
 
 const styles = StyleSheet.create({
+  main: {
+    height: Dimensions.get("window").height*0.87
+  },
   container: {
-    flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#bfe4ff"
+    backgroundColor: "#bfe4ff",
+    flex: 1
   },
   editTitle: {
     justifyContent: "center",
@@ -129,7 +135,7 @@ export default class FloatingLabelExample extends Component {
           } else {
             this.setState({
               loading: false,
-              success: false,
+              success: false
             });
           }
         }}
@@ -139,49 +145,53 @@ export default class FloatingLabelExample extends Component {
       </Button>
     );
 
-    if (!this.state.loading && this.state.success===null) {
+    if (!this.state.loading && this.state.success === null) {
       button = submitButton;
     } else if (this.state.success && !this.state.loading) {
       button = successButton;
-    } else if (this.state.success===false && !this.state.loading) {
+    } else if (this.state.success === false && !this.state.loading) {
       button = failedButton;
     } else if (this.state.loading) {
       button = loadingButton;
     }
 
     return (
-      <View style={styles.container}>
-        <View style={styles.editTitle}>
-          <Image
-            style={{ width: 100, height: 100 }}
-            source={{
-              uri:
-                "http://www.myiconfinder.com/uploads/iconsets/ac7256a56da1fa7c09a699ddec407e7e-human.png"
-            }}
-          />
+      <ScrollView>
+        <View style={styles.main}>
+          <View style={styles.container}>
+            <View style={styles.editTitle}>
+              <Image
+                style={{ width: 100, height: 100 }}
+                source={{
+                  uri:
+                    "http://www.myiconfinder.com/uploads/iconsets/ac7256a56da1fa7c09a699ddec407e7e-human.png"
+                }}
+              />
+            </View>
+            <View style={styles.form}>
+              <Form>
+                <Item stackedLabel>
+                  <Label>Name</Label>
+                  <Input />
+                </Item>
+                <Item stackedLabel>
+                  <Label>Email</Label>
+                  <Input />
+                </Item>
+                <Item stackedLabel>
+                  <Label>Phone</Label>
+                  <Input />
+                </Item>
+                <Item stackedLabel>
+                  <Label>Password</Label>
+                  <Input />
+                </Item>
+              </Form>
+            </View>
+            <View style={styles.confirmButton}>{button}</View>
+          </View>
         </View>
-        <View style={styles.form}>
-          <Form>
-            <Item stackedLabel>
-              <Label>Name</Label>
-              <Input />
-            </Item>
-            <Item stackedLabel>
-              <Label>Email</Label>
-              <Input />
-            </Item>
-            <Item stackedLabel>
-              <Label>Phone</Label>
-              <Input />
-            </Item>
-            <Item stackedLabel>
-              <Label>Password</Label>
-              <Input />
-            </Item>
-          </Form>
-        </View>
-        <View style={styles.confirmButton}>{button}</View>
-      </View>
+      </ScrollView>
     );
   }
 }
