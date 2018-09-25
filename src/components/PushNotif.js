@@ -31,6 +31,8 @@ export default class PushNotif extends Component {
       PushNotification.localNotificationSchedule({
         message: "My Notification Message",
         date,
+        playSound: true,
+        soundName: 'default'
       });
     }
   }
