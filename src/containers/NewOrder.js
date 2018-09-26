@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { 
+import {
   StyleSheet,
   FlatList
 } from 'react-native'
@@ -25,19 +25,19 @@ export default class NewOrder extends Component {
       items: [
         {
           name: 'Small Parcel Pintar',
-          image: 'https://vignette.wikia.nocookie.net/project-pokemon/images/4/47/Placeholder.png/revision/latest?cb=20170330235552',
+          image: 'https://www.boxesforsale.com.au/wp-content/uploads/2017/07/medium_cube_box_-_500mm_1.png',
           size: '15 cm x 15 cm x 15 cm',
           type: 's'
         },
         {
           name: 'Medium Parcel Pintar',
-          image: 'https://vignette.wikia.nocookie.net/project-pokemon/images/4/47/Placeholder.png/revision/latest?cb=20170330235552',
+          image: 'https://www.boxesforsale.com.au/wp-content/uploads/2017/07/medium_cube_box_-_500mm_1.png',
           size: '30 cm x 30 cm x 30 cm',
           type: 'm'
         },
         {
           name: 'Large Parcel Pintar',
-          image: 'https://vignette.wikia.nocookie.net/project-pokemon/images/4/47/Placeholder.png/revision/latest?cb=20170330235552',
+          image: 'https://www.boxesforsale.com.au/wp-content/uploads/2017/07/medium_cube_box_-_500mm_1.png',
           size: '50 cm x 50 cm x 50 cm',
           type: 'l'
         },
