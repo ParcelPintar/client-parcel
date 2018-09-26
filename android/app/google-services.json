@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "99027163766",
+    "firebase_url": "https://parcelpintar.firebaseio.com",
+    "project_id": "parcelpintar",
+    "storage_bucket": "parcelpintar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99027163766:android:2c8a2f99573b084a",
+        "android_client_info": {
+          "package_name": "com.parcel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "99027163766-hh6aca1ai5l9kpoo3tf6597svv8oujdk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKKMFhjq5FbiVBu3zrybmfGVidwWyNUcQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99027163766:android:3597e10610790ec4",
+        "android_client_info": {
+          "package_name": "com.parcelpintar.pp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "99027163766-hh6aca1ai5l9kpoo3tf6597svv8oujdk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKKMFhjq5FbiVBu3zrybmfGVidwWyNUcQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

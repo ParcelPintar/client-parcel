@@ -18,6 +18,8 @@ import Welcome from './containers/Welcome'
 import Login from './containers/Login'
 import Register from './containers/Register'
 
+import PushNotif from './components/PushNotif'
+
 const OrderStack = createStackNavigator(
   { 
     Home: NewOrder,
@@ -57,9 +59,10 @@ const SettingsStack = createStackNavigator (
   {
     Profile,
     EditProfile,
+    PushNotif
   },
   {
-    initialRouteName: 'Profile',
+    initialRouteName: 'PushNotif',
     navigationOptions: {
       headerStyle: {
         backgroundColor: '#44b4ff'
