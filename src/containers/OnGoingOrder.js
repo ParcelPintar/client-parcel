@@ -34,29 +34,46 @@ export default class OnGoingOrder extends Component {
   constructor(){
     super()
     this.state = {
-      // region: {
-      //   latitude: null,
-      //   longitude: null,
-      //   latitudeDelta: LATITUDE_DELTA,
-      //   longitudeDelta: LONGITUDE_DELTA,
-      // },
+      region: {
+        latitude: LATITUDE,
+        longitude: LONGITUDE,
+        latitudeDelta: LATITUDE_DELTA,
+        longitudeDelta: LONGITUDE_DELTA,
+      },
       // latitude: null,
       // longitude: null,
       coords: [],
       thereIsRoute: null,
       destLatitude: -6.2607187,
       destLongitude: 106.7794275,
-      pickLatitude: -6.2807187,
-      pickLongitude: 106.7894275
+      // pickLatitude: -6.2807187,
+      // pickLongitude: 106.7894275
     }
   }
 
   static navigationOptions = {
-    // title: 'OnGoingOrder',
-    header: null
+    title: 'OnGoingOrder',
   };
 
   componentDidMount = () => {
+    console.log('OOG',
+    this.props.navigation.getParam('pickLat')
+  );
+    this.setState({
+      region: {
+        latitude: this.props.navigation.getParam('pickLat'),
+        longitude: this.props.navigation.getParam('pickLong'),
+        latitudeDelta: LATITUDE_DELTA,
+        longitudeDelta: LONGITUDE_DELTA,
+      },
+      // destLatitude: this.props.navigation.getParam('destLat'),
+      // destLongitude: this.props.navigation.getParam('destLong'),
+      destLatitude: this.props.navigation.getParam('destLat'),
+      destLongitude: this.props.navigation.getParam('destLong')
+    }, 
+      this.startDrawLine()
+    )
+
     // navigator.geolocation.getCurrentPosition(
     //   position => {
     //     console.log('POS', position);
@@ -73,17 +90,11 @@ export default class OnGoingOrder extends Component {
     // (error) => console.log(error.message),
     // { enableHighAccuracy: true, timeout: 20000 },
     // );
-    this.setState({
-      destLatitude: this.props.navigation.getParam('destLat'),
-      destLongitude: this.props.navigation.getParam('destLong'),
-      pickLatitude: this.props.navigation.getParam('pickLat'),
-      pickLongitude: this.props.navigation.getParam('pickLong')
-    })
   }
 
   startDrawLine = () => {
-    if (this.state.pickLatitude != null && this.state.pickLongitude != null) {
-      let locationNow = `${this.state.pickLatitude},${this.state.pickLongitude}`
+    if (this.state.region.latitude != null && this.state.region.longitude != null) {
+      let locationNow = `${this.state.region.latitude},${this.state.region.longitude}`
       
       this.getDirections(locationNow, `${this.state.destLatitude},${this.state.destLongitude}`);
     }
@@ -163,82 +174,60 @@ export default class OnGoingOrder extends Component {
       //     }
       //   </MapView>  
       // </View>
-      <Container>
-        <Header style={{backgroundColor: '#44b4ff'}}>
-        <Body>
-          <Title> On Going Order</Title>
-        </Body>
-        <Right>
-          <Button small transparent onPress={() => this.props.navigation.navigate('Checkout', {cart: this.state.cart})}>
-            <FontAwesome5 name={'history'} color='white' size={25} solid />
-          </Button>
-        </Right>
-      </Header>
-        <Content>
-          <View style={styles.container}>
-            <MapView
-              style={styles.map}
-              showsUserLocation={true}
-              region={{
-                latitude: this.state.pickLatitude,
-                longitude: this.state.pickLongitude,
-                latitudeDelta: LATITUDE_DELTA,
-                longitudeDelta: LONGITUDE_DELTA
+      <View style={styles.container}>
+        <MapView
+          style={styles.map}
+          showsUserLocation={true}
+          region={this.state.region}
+        >
+          {
+            (this.state.region.latitude && this.state.region.longitude) &&
+            <Marker
+              coordinate={this.state.region}
+              title='Your Location'
+              pinColor='blue'
+            />
+          }
+          {
+            (this.state.destLatitude && this.state.destLongitude) &&
+            <Marker
+              coordinate={{
+                latitude: this.state.destLatitude,
+                longitude: this.state.destLongitude
               }}
-            >
-              {
-                (this.state.pickLatitude && this.state.pickLongitude) &&
-                <Marker
-                  coordinate={{
-                    latitude: this.state.pickLatitude,
-                    longitude: this.state.pickLongitude,
-                    latitudeDelta: LATITUDE_DELTA,
-                    longitudeDelta: LONGITUDE_DELTA
-                  }}
-                  title='Your Location'
-                  pinColor='blue'
-                />
-              }
-              {
-                (this.state.destLatitude && this.state.destLongitude) &&
-                <Marker
-                  coordinate={{
-                    latitude: this.state.destLatitude,
-                    longitude: this.state.destLongitude
-                  }}
-                  title='Your Parcel'
-                  pinColor='red'
-                />
-              }
-              {
-                (this.state.pickLatitude && this.state.pickLongitude && this.state.thereIsRoute) &&
-                <Polyline
-                  coordinates={this.state.coords}
-                  strokeWidth={5}
-                  strokeColor="blue"
-                />
-              }
-              {
-                (this.state.pickLatitude && this.state.pickLongitude && this.state.thereIsRoute == 'error') &&
-                <Polyline
-                  coordinates={[
-                    {
-                      latitude: this.state.pickLatitude,
-                      longitude: this.state.pickLongitude
-                    },
-                    {
-                      latitude: this.state.destLatitude,
-                      longitude: this.state.destLongitude
-                    }
-                  ]}
-                  strokeWidth={5}
-                  strokeColor="blue"
-                />
-              }
-            </MapView>
-          </View>
-        </Content>
-      </Container>
+              title='Your Parcel'
+              pinColor='red'
+            />
+          }
+          {
+            (this.state.region.latitude && this.state.region.longitude && this.state.thereIsRoute) &&
+            <Polyline
+              coordinates={this.state.coords}
+              strokeWidth={5}
+              strokeColor="blue"
+            />
+          }
+          {
+            (this.state.region.latitude && this.state.region.longitude && this.state.thereIsRoute == 'error') &&
+            <Polyline
+              coordinates={[
+                {
+                  latitude: this.state.region.latitude,
+                  longitude: this.state.region.longitude
+                },
+                {
+                  latitude: this.state.destLatitude,
+                  longitude: this.state.destLongitude
+                }
+              ]}
+              strokeWidth={5}
+              strokeColor="blue"
+            />
+          }
+          
+        </MapView>
+        
+      </View>
     )
   }
 }

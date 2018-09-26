@@ -131,7 +131,9 @@ export default class ConfirmOrder extends Component {
         onPress={() => {
           this.props.navigation.navigate('OnGoingOrder', {
             destLat: this.props.navigation.getParam('destLat'),
-            destLong: this.props.navigation.getParam('destLong')
+            destLong: this.props.navigation.getParam('destLong'),
+            pickLat: this.props.navigation.getParam('pickLat'),
+            pickLong: this.props.navigation.getParam('pickLong')
           })
         }}
       >
