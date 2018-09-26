@@ -55,7 +55,7 @@ export default class ConfirmOrder extends Component {
     let price = 0
     switch(itemType) {
       case 'l':
-        price = Math.round(+distance / 1000 * 4.5);
+        price = Math.round(+distance / 1000) * 5000;
         if(price > 20000){
           console.log(price);
           return price
@@ -65,7 +65,7 @@ export default class ConfirmOrder extends Component {
         }
         break;
       case 'm':
-        price = Math.round(+distance / 1000 * 4);
+        price = Math.round(+distance / 1000) * 4000
         if(price > 20000){
           console.log(price);
           return price
@@ -75,7 +75,7 @@ export default class ConfirmOrder extends Component {
         }
         break;
       default:
-        price = Math.round(+distance / 1000 * 3);
+        price = Math.round(+distance / 1000) * 3000
         if(price > 20000){
           console.log(price);
           return price
@@ -129,13 +129,13 @@ export default class ConfirmOrder extends Component {
         info
         style={styles.button}
         onPress={() => {
-          this.setState({
-            loading: true
-          });
+          this.props.navigation.navigate('OnGoingOrder', {
+            destLat: this.props.navigation.getParam('destLat'),
+            destLong: this.props.navigation.getParam('destLong')
+          })
         }}
       >
-        <Icon name="ios-person" color="white" size={30} />
-        <Text>Submit</Text>
+        <Text>Confirm Order</Text>
       </Button>
     );
 
@@ -186,7 +186,7 @@ export default class ConfirmOrder extends Component {
           <View style={styles.form}>
             <Form>
               <Item stackedLabel disabled>
-                <Label>Item Name</Label>
+                <Label>Chosen Package</Label>
                 <Input 
                   disabled 
                   value={this.state.item}
@@ -208,7 +208,7 @@ export default class ConfirmOrder extends Component {
               </Item>
             </Form>
           </View>
-          <View style={styles.confirmButton}>{button}</View>
+          <View style={styles.confirmButton}>{submitButton}</View>
         </View>
       </View>
     );
