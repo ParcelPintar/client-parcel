@@ -275,9 +275,9 @@ public final class R {
         public static final int common_open_on_phone = 0x7f0c0046;
         public static final int common_signin_button_text = 0x7f0c0047;
         public static final int common_signin_button_text_long = 0x7f0c0048;
-        public static final int place_autocomplete_clear_button = 0x7f0c0054;
-        public static final int place_autocomplete_search_hint = 0x7f0c0055;
-        public static final int status_bar_notification_info_overflow = 0x7f0c0059;
+        public static final int place_autocomplete_clear_button = 0x7f0c0053;
+        public static final int place_autocomplete_search_hint = 0x7f0c0054;
+        public static final int status_bar_notification_info_overflow = 0x7f0c0058;
     }
     public static final class style {
         public static final int TextAppearance_Compat_Notification = 0x7f0d00f2;
