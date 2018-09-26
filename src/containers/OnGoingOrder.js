@@ -8,6 +8,11 @@ import {
 } from 'react-native'
 import {
   Container,
+  Content,
+  Header,
+  Body,
+  Title,
+  Right,
   Text, 
   Button,
   Thumbnail
@@ -15,6 +20,7 @@ import {
 import MapView, { Marker, Polyline } from 'react-native-maps'
 const polyline = require('@mapbox/polyline');
 import axios from 'axios'
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 const API_KEY = 'AIzaSyBn1H1x86gDfxe9XutNmhdnafkLsdnhedI'
 const { width, height } = Dimensions.get('window');
@@ -29,8 +35,8 @@ export default class OnGoingOrder extends Component {
     super()
     this.state = {
       region: {
-        latitude: null,
-        longitude: null,
+        latitude: LATITUDE,
+        longitude: LONGITUDE,
         latitudeDelta: LATITUDE_DELTA,
         longitudeDelta: LONGITUDE_DELTA,
       },
@@ -38,8 +44,10 @@ export default class OnGoingOrder extends Component {
       // longitude: null,
       coords: [],
       thereIsRoute: null,
-      destLatitude: -6.2372475,
-      destLongitude: 106.7803338
+      destLatitude: -6.2607187,
+      destLongitude: 106.7794275,
+      // pickLatitude: -6.2807187,
+      // pickLongitude: 106.7894275
     }
   }
 
@@ -48,30 +56,52 @@ export default class OnGoingOrder extends Component {
   };
 
   componentDidMount = () => {
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        console.log('POS', position);
-        this.setState({
-          region: {
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-            latitudeDelta: LATITUDE_DELTA,
-            longitudeDelta: LONGITUDE_DELTA,
-          }
-        });
-        this.startDrawLine()
+    console.log('OOG',
+    this.props.navigation.getParam('pickLat')
+  );
+    this.setState({
+      region: {
+        latitude: this.props.navigation.getParam('pickLat'),
+        longitude: this.props.navigation.getParam('pickLong'),
+        latitudeDelta: LATITUDE_DELTA,
+        longitudeDelta: LONGITUDE_DELTA,
       },
-    (error) => console.log(error.message),
-    { enableHighAccuracy: true, timeout: 20000 },
-    );
+      // destLatitude: this.props.navigation.getParam('destLat'),
+      // destLongitude: this.props.navigation.getParam('destLong'),
+      destLatitude: this.props.navigation.getParam('destLat'),
+      destLongitude: this.props.navigation.getParam('destLong')
+    }, 
+      this.startDrawLine()
+    )
+
+    // navigator.geolocation.getCurrentPosition(
+    //   position => {
+    //     console.log('POS', position);
+    //     this.setState({
+    //       region: {
+    //         latitude: position.coords.latitude,
+    //         longitude: position.coords.longitude,
+    //         latitudeDelta: LATITUDE_DELTA,
+    //         longitudeDelta: LONGITUDE_DELTA,
+    //       }
+    //     });
+    //     this.startDrawLine()
+    //   },
+    // (error) => console.log(error.message),
+    // { enableHighAccuracy: true, timeout: 20000 },
+    // );
   }
 
   startDrawLine = () => {
-    if (this.state.region.latitude != null && this.state.region.longitude != null) {
-      let locationNow = `${this.state.region.latitude},${this.state.region.longitude}`
+    // if (this.state.region.latitude != null && this.state.region.longitude != null) {
+    //   let locationNow = `${this.state.region.latitude},${this.state.region.longitude}`
       
-      this.getDirections(locationNow, `${this.state.destLatitude},${this.state.destLongitude}`);
-    }
+    //   this.getDirections(locationNow, `${this.state.destLatitude},${this.state.destLongitude}`);
+    // }
+
+    let locationNow = `${this.props.navigation.getParam('pickLat')},${this.props.navigation.getParam('pickLong')}`
+    
+    this.getDirections(locationNow, `${this.props.navigation.getParam('destLat')},${this.props.navigation.getParam('destLong')}`);
   }
 
   getDirections = (start, destination) => {
@@ -96,6 +126,58 @@ export default class OnGoingOrder extends Component {
 
   render() {
     return (
+      // <View style={styles.container}>
+      //   <MapView
+      //     style={styles.map}
+      //     showsUserLocation={true}
+      //     region={this.state.region}
+      //   >
+      //     {
+      //       (this.state.region.latitude && this.state.region.longitude) &&
+      //       <Marker
+      //         coordinate={this.state.region}
+      //         title='Your Location'
+      //         pinColor='blue'
+      //       />
+      //     }
+      //     {
+      //       (this.state.destLatitude && this.state.destLongitude) &&
+      //       <Marker
+      //         coordinate={{
+      //           latitude: this.state.destLatitude,
+      //           longitude: this.state.destLongitude
+      //         }}
+      //         title='Your Parcel'
+      //         pinColor='red'
+      //       />
+      //     }
+      //     {
+      //       (this.state.region.latitude && this.state.region.longitude && this.state.thereIsRoute) &&
+      //       <Polyline
+      //         coordinates={this.state.coords}
+      //         strokeWidth={5}
+      //         strokeColor="blue"
+      //       />
+      //     }
+      //     {
+      //       (this.state.region.latitude && this.state.region.longitude && this.state.thereIsRoute == 'error') &&
+      //       <Polyline
+      //         coordinates={[
+      //           {
+      //             latitude: this.state.region.latitude,
+      //             longitude: this.state.region.longitude
+      //           },
+      //           {
+      //             latitude: this.state.destLatitude,
+      //             longitude: this.state.destLongitude
+      //           }
+      //         ]}
+      //         strokeWidth={5}
+      //         strokeColor="blue"
+      //       />
+      //     }
+      //   </MapView>  
+      // </View>
       <View style={styles.container}>
         <MapView
           style={styles.map}

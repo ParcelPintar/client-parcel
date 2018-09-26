@@ -59,10 +59,10 @@ const SettingsStack = createStackNavigator (
   {
     Profile,
     EditProfile,
-    PushNotif
+    // PushNotif
   },
   {
-    initialRouteName: 'PushNotif',
+    initialRouteName: 'Profile',
     navigationOptions: {
       headerStyle: {
         backgroundColor: '#44b4ff'

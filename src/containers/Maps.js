@@ -242,7 +242,15 @@ export default class Maps extends Component {
     let distance = calculation.distance.value
     let duration = calculation.duration.text
     let item = this.props.navigation.getParam('item')
-    this.props.navigation.navigate('ConfirmOrder', {distance, ETA: duration, item})
+    this.props.navigation.navigate('ConfirmOrder', {
+      distance, 
+      ETA: duration, 
+      item, 
+      destLat: this.state.selectedDestination.lat, 
+      destLong: this.state.selectedDestination.long,
+      pickLat: this.state.selectedPickup.lat,
+      pickLong: this.state.selectedPickup.long
+    })
   }
 
   setPickupByMarker = () => {
@@ -250,7 +258,7 @@ export default class Maps extends Component {
     let lat = this.state.region.latitude
     let long = this.state.region.longitude
     let location = `location=${lat},${long}`
-    let radius = `radius=100`
+    let radius = `radius=500`
 
     axios.get(`${baseUrl}${location}&${radius}&key=${API_KEY}`)
       .then(({data}) => {
@@ -267,7 +275,7 @@ export default class Maps extends Component {
     let lat = this.state.region.latitude
     let long = this.state.region.longitude
     let location = `location=${lat},${long}`
-    let radius = `radius=100`
+    let radius = `radius=1000`
 
     axios.get(`${baseUrl}${location}&${radius}&key=${API_KEY}`)
       .then(({data}) => {
