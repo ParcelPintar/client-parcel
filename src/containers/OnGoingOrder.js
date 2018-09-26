@@ -93,11 +93,15 @@ export default class OnGoingOrder extends Component {
   }
 
   startDrawLine = () => {
-    if (this.state.region.latitude != null && this.state.region.longitude != null) {
-      let locationNow = `${this.state.region.latitude},${this.state.region.longitude}`
+    // if (this.state.region.latitude != null && this.state.region.longitude != null) {
+    //   let locationNow = `${this.state.region.latitude},${this.state.region.longitude}`
       
-      this.getDirections(locationNow, `${this.state.destLatitude},${this.state.destLongitude}`);
-    }
+    //   this.getDirections(locationNow, `${this.state.destLatitude},${this.state.destLongitude}`);
+    // }
+
+    let locationNow = `${this.props.navigation.getParam('pickLat')},${this.props.navigation.getParam('pickLong')}`
+    
+    this.getDirections(locationNow, `${this.props.navigation.getParam('destLat')},${this.props.navigation.getParam('destLong')}`);
   }
 
   getDirections = (start, destination) => {
