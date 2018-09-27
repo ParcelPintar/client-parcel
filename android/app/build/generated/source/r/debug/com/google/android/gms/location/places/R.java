@@ -50,7 +50,7 @@ public final class R {
         public static final int place_autocomplete_progress = 0x7f090032;
     }
     public static final class string {
-        public static final int place_autocomplete_clear_button = 0x7f0c0054;
-        public static final int place_autocomplete_search_hint = 0x7f0c0055;
+        public static final int place_autocomplete_clear_button = 0x7f0c0053;
+        public static final int place_autocomplete_search_hint = 0x7f0c0054;
     }
 }

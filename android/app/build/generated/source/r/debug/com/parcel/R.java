@@ -3228,20 +3228,19 @@ public final class R {
     public static final int default_web_client_id=0x7f0c0049;
     public static final int firebase_database_url=0x7f0c004a;
     public static final int gcm_defaultSenderId=0x7f0c004b;
-    public static final int gcm_fallback_notification_channel_label=0x7f0c004c;
-    public static final int google_api_key=0x7f0c004d;
-    public static final int google_app_id=0x7f0c004e;
-    public static final int google_crash_reporting_api_key=0x7f0c004f;
-    public static final int google_storage_bucket=0x7f0c0050;
-    public static final int image_button_description=0x7f0c0051;
-    public static final int image_description=0x7f0c0052;
-    public static final int link_description=0x7f0c0053;
-    public static final int place_autocomplete_clear_button=0x7f0c0054;
-    public static final int place_autocomplete_search_hint=0x7f0c0055;
-    public static final int project_id=0x7f0c0056;
-    public static final int search_description=0x7f0c0057;
-    public static final int search_menu_title=0x7f0c0058;
-    public static final int status_bar_notification_info_overflow=0x7f0c0059;
+    public static final int google_api_key=0x7f0c004c;
+    public static final int google_app_id=0x7f0c004d;
+    public static final int google_crash_reporting_api_key=0x7f0c004e;
+    public static final int google_storage_bucket=0x7f0c004f;
+    public static final int image_button_description=0x7f0c0050;
+    public static final int image_description=0x7f0c0051;
+    public static final int link_description=0x7f0c0052;
+    public static final int place_autocomplete_clear_button=0x7f0c0053;
+    public static final int place_autocomplete_search_hint=0x7f0c0054;
+    public static final int project_id=0x7f0c0055;
+    public static final int search_description=0x7f0c0056;
+    public static final int search_menu_title=0x7f0c0057;
+    public static final int status_bar_notification_info_overflow=0x7f0c0058;
   }
   public static final class style {
     public static final int AlertDialog_AppCompat=0x7f0d0000;

@@ -18,7 +18,7 @@ import Welcome from './containers/Welcome'
 import Login from './containers/Login'
 import Register from './containers/Register'
 
-import PushNotif from './components/PushNotif'
+// import PushNotif from './components/PushNotif'
 
 const OrderStack = createStackNavigator(
   { 

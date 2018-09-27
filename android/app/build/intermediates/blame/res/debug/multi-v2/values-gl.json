@@ -1,27 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/hacktiv8/Desktop/client-parcel/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-gl/values-gl.xml",
+            "outputFile": "/home/brian/Desktop/client-parcel/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-gl/values-gl.xml",
             "map": [
                 {
-                    "source": "/Users/hacktiv8/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/cb361661e7825044e13a922483c94b4c/res/values-gl/values.xml",
+                    "source": "/home/brian/.gradle/caches/transforms-1/files-1.1/play-services-places-15.0.1.aar/59ee6d76055be26592ef66908fdcce58/res/values-gl/values.xml",
                     "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "192",
-                        "endOffsets": "439"
+                        "startLines": "4,5",
+                        "startColumns": "0,0",
+                        "startOffsets": "193,293",
+                        "endColumns": "99,91",
+                        "endOffsets": "292,384"
                     },
                     "to": {
-                        "startLines": "27",
-                        "startColumns": "4",
-                        "startOffsets": "3073",
-                        "endColumns": "192",
-                        "endOffsets": "3261"
+                        "startLines": "37,38",
+                        "startColumns": "4,4",
+                        "startOffsets": "4660,4764",
+                        "endColumns": "103,95",
+                        "endOffsets": "4759,4855"
                     }
                 },
                 {
-                    "source": "/Users/hacktiv8/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/32d111eb58a045801cf80e1136fe47f1/res/values-gl/values-gl.xml",
+                    "source": "/home/brian/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/8c85beee8c9ad846040a6851be74efc9/res/values-gl/values-gl.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -30,32 +30,15 @@
                         "endOffsets": "151"
                     },
                     "to": {
-                        "startLines": "41",
+                        "startLines": "40",
                         "startColumns": "4",
-                        "startOffsets": "5044",
+                        "startOffsets": "4942",
                         "endColumns": "100",
-                        "endOffsets": "5140"
+                        "endOffsets": "5038"
                     }
                 },
                 {
-                    "source": "/Users/hacktiv8/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/d925b19d41e977f1a5bf4e8b80fca0e5/res/values-gl/values-gl.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,217,329,437,522,624,750,834,915,997,1104,1213,1312,1420,1524,1631,1790,1890",
-                        "endColumns": "111,111,107,84,101,125,83,80,81,106,108,98,107,103,106,158,99,81",
-                        "endOffsets": "212,324,432,517,619,745,829,910,992,1099,1208,1307,1415,1519,1626,1785,1885,1967"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,40",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,217,329,437,522,624,750,834,915,997,1104,1213,1312,1420,1524,1631,1790,4962",
-                        "endColumns": "111,111,107,84,101,125,83,80,81,106,108,98,107,103,106,158,99,81",
-                        "endOffsets": "212,324,432,517,619,745,829,910,992,1099,1208,1307,1415,1519,1626,1785,1885,5039"
-                    }
-                },
-                {
-                    "source": "/Users/hacktiv8/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/c2c59ea56946358e33ad7b935b619ddb/res/values-gl/values.xml",
+                    "source": "/home/brian/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/7f2aca3e5dd00bbdd2ae1a9ecddf57cd/res/values-gl/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -72,37 +55,37 @@
                     }
                 },
                 {
-                    "source": "/Users/hacktiv8/.gradle/caches/transforms-1/files-1.1/play-services-gcm-15.0.1.aar/11e74e2191d3917fd0ae8eb8f42a9c07/res/values-gl/values.xml",
+                    "source": "/home/brian/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/135aaab03d3c2956bf093c33404f625d/res/values-gl/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
-                        "startOffsets": "190",
-                        "endColumns": "97",
-                        "endOffsets": "287"
+                        "startOffsets": "247",
+                        "endColumns": "192",
+                        "endOffsets": "439"
                     },
                     "to": {
-                        "startLines": "37",
+                        "startLines": "27",
                         "startColumns": "4",
-                        "startOffsets": "4660",
-                        "endColumns": "101",
-                        "endOffsets": "4757"
+                        "startOffsets": "3073",
+                        "endColumns": "192",
+                        "endOffsets": "3261"
                     }
                 },
                 {
-                    "source": "/Users/hacktiv8/.gradle/caches/transforms-1/files-1.1/play-services-places-15.0.1.aar/8b5bdb1e6df2d28499e36cf11891b8f8/res/values-gl/values.xml",
+                    "source": "/home/brian/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/03d9dacf6576fbb79a4db6a921210ef3/res/values-gl/values-gl.xml",
                     "from": {
-                        "startLines": "4,5",
-                        "startColumns": "0,0",
-                        "startOffsets": "193,293",
-                        "endColumns": "99,91",
-                        "endOffsets": "292,384"
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,217,329,437,522,624,750,834,915,997,1104,1213,1312,1420,1524,1631,1790,1890",
+                        "endColumns": "111,111,107,84,101,125,83,80,81,106,108,98,107,103,106,158,99,81",
+                        "endOffsets": "212,324,432,517,619,745,829,910,992,1099,1208,1307,1415,1519,1626,1785,1885,1967"
                     },
                     "to": {
-                        "startLines": "38,39",
-                        "startColumns": "4,4",
-                        "startOffsets": "4762,4866",
-                        "endColumns": "103,95",
-                        "endOffsets": "4861,4957"
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,39",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,217,329,437,522,624,750,834,915,997,1104,1213,1312,1420,1524,1631,1790,4860",
+                        "endColumns": "111,111,107,84,101,125,83,80,81,106,108,98,107,103,106,158,99,81",
+                        "endOffsets": "212,324,432,517,619,745,829,910,992,1099,1208,1307,1415,1519,1626,1785,1885,4937"
                     }
                 }
             ]

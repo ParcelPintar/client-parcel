@@ -130,7 +130,6 @@ android/support/v7/widget/LinearLayoutCompat$DividerMode.class
 android/support/v7/widget/LinearLayoutCompat$OrientationMode.class
 com/airbnb/android/react/maps/MapsPackage.class
 com/arttitude360/reactnative/rngoogleplaces/RNGooglePlacesPackage.class
-com/dieam/reactnativepushnotification/ReactNativePushNotificationPackage.class
 com/facebook/cache/disk/DefaultDiskStorage$FileType.class
 com/facebook/common/internal/DoNotStrip.class
 com/facebook/common/internal/Objects.class
